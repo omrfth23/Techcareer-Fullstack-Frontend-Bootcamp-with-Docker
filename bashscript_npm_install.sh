@@ -152,7 +152,7 @@ gitignore_install() {
     # Geriye Sayım
     ./bashscript_countdown.sh
 
-    echo -e "\e[36m\n###### gitignore Kurulumu ######\e[0m"
+    echo -e "\n\e[36m\n###### gitignore Kurulumu ######\e[0m"
     echo -e "\e[33mgitignore yüklemek ister misiniz? [e/h]\e[0m"
     read -p "" gitignore
 
@@ -192,7 +192,7 @@ package_json() {
     # Geriye Say
     ./bashscript_countdown.sh
 
-    echo -e "\e[36m\n###### ${PACKAGE_JSON} ######  \e[0m"
+    echo -e "\n\e[36m\n###### ${PACKAGE_JSON} ######  \e[0m"
     echo -e "\e[33mPackage.json Yüklemek İster misiniz ? e/h\e[0m"
     read -p "" packageJsonResult
     if [[ $packageJsonResult == "e" || $packageJsonResult == "E" ]]; then
@@ -216,7 +216,7 @@ npm_local_save() {
     # Geriye Say
     ./bashscript_countdown.sh
 
-    echo -e "\e[36m\n###### ${NPM_SAVE} ######  \e[0m"
+    echo -e "\n\e[36m\n###### ${NPM_SAVE} ######  \e[0m"
     echo -e "\e[33mNpm Paketlerini Yüklemek İster misiniz ? e/h\e[0m"
     read -p "" npmSaveResult
     if [[ $npmSaveResult == "e" || $npmSaveResult == "E" ]]; then
@@ -250,7 +250,7 @@ npm_local_dev_sav() {
     # Geriye Say
     ./bashscript_countdown.sh
 
-    echo -e "\e[36m\n###### ${NPM_SAVE_DEV} ######  \e[0m"
+    echo -e "\n\e[36m\n###### ${NPM_SAVE_DEV} ######  \e[0m"
     echo -e "\e[33mnpm Save-Dev Paketlerini Yüklemek İster misiniz ? e/h\e[0m"
     read -p "" npmDevSaveResult
     if [[ $npmDevSaveResult == "e" || $npmDevSaveResult == "E" ]]; then
@@ -286,7 +286,7 @@ npm_global_save() {
     # Geriye Say
     ./bashscript_countdown.sh
 
-    echo -e "\e[36m\n###### ${NPM_GLOBAL} ######  \e[0m"
+    echo -e "\n\e[36m\n###### ${NPM_GLOBAL} ######  \e[0m"
     echo -e "\e[33mnpm Global  Paketlerini Yüklemek İster misiniz ? e/h\e[0m"
     read -p "" npmGlobalResult
     if [[ $npmGlobalResult == "e" || $npmGlobalResult == "E" ]]; then
@@ -364,7 +364,6 @@ typescript_install() {
 }
 EOL
             echo "index.ts oluşturuldu ve içerik eklendi."
-            cd ..
             ls -al
             echo "Ana dizindeyiz"
         else
@@ -427,7 +426,7 @@ nodemon_install() {
     read -p "" nodemonResult
 
     if [[ "$nodemonResult" == "e" || "$nodemonResult" == "E" ]]; then
-        echo -e "\e[32mTypeScript yüklenmeye başlıyor...\e[0m"
+        echo -e "\e[32mNodemon yüklenmeye başlıyor...\e[0m"
 
         # Geriye Sayım
         ./bashscript_countdown.sh
@@ -448,9 +447,9 @@ EOL
             echo "nodemon.json zaten mevcut."
         fi
 
-        echo -e "\e[32mTypeScript kurulumu tamamlandı!\e[0m"
+        echo -e "\e[32mnodemon kurulumu tamamlandı!\e[0m"
     else
-        echo -e "\e[31mTypeScript kurulumu iptal edildi.\e[0m"
+        echo -e "\e[31mnodemon kurulumu iptal edildi.\e[0m"
     fi
 }
 

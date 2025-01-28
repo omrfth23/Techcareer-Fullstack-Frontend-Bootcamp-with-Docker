@@ -530,7 +530,7 @@ package_json_script_added() {
         fi
 
         # Yeni scriptler JSON formatında tanımlanıyor
-        NEW_SCRIPTS=',\"server:start\": \"lite-server\",\n      \"build_watch\": \"tsc -w --pretty\",\n  \"nodemon_app_watch\": \"nodemon --watch src --watch dist ./dist/index.js\",\n  \"dev:seri\": \"npm-run-all --serial build_watch nodemon_app_watch\",\n  \"dev:paralel\": \"concurrently -k \\\"npm run build_watch\\\" \\\"npm run nodemon_app_watch\\\"\"'
+        NEW_SCRIPTS=',\"server:start\": \"lite-server\",\n      \"build_watch\": \"tsc -w --pretty\",\n  \"nodemon_app_watch\": \"nodemon --watch src --watch dist ./dist/index.js\",\n  \"dev:seri\": \"npm-run-all --serial build_watch nodemon_app_watch\",\n  \"dev:paralel\": \"concurrently -k \\\"npm run build_watch\\\" \\\"npm run nodemon_app_watch\\\" \\\"npm run server:start\\\"\"'
 
         # "scripts" alanını bul ve "test" scriptinden sonra yeni scriptleri ekle
         sed -i.bak "/\"test\": /a \
@@ -605,11 +605,6 @@ EOL
 server_start
 
 
-#####################################################################################################
-#####################################################################################################
-# Typescript başlat
-npm run dev:paralel
-
 
 #####################################################################################################
 #####################################################################################################
@@ -634,3 +629,9 @@ git_push() {
     fi
 }
 git_push
+
+
+#####################################################################################################
+#####################################################################################################
+# Typescript başlat
+npm run dev:paralel

@@ -1,6 +1,16 @@
 # Techcareer Frontend Full Stack- Dockerize
 [GitHub Address](https://github.com/hamitmizrak/2025_techcareer_frontend_fullstack_1.git)
+[Mongo Database]()
 ---
+
+## Version
+```sh
+git -v
+node -v
+npm -v
+```
+---
+
 
 ## Git
 ```sh
@@ -10,7 +20,6 @@ git commit -m "Frontend init"
 git remote add origin GITHUB_URL
 git push -u origin master
 git push -u origin main
-
 
 git branch
 git pull
@@ -42,39 +51,130 @@ Rainbow Brackets           => MHammed Talhaouy
 ```
 ---
 
-## Konu
+## Teknoloji İsimleri
 ```sh
-
+HTML5
+CSS3
+BOOTSTRAP5
+JS
+TYPESCRIPT
+EJS
+NODE JS
+MONGODB
+EXPRESS JS
+GIT/GITHUB
+DOCKER
+REST API
+NGINX
+CI/CD
 ```
 ---
 
-## Konu
-```sh
 
+
+## Teknoloji İçerikleri
+```sh
+nodemon
+mongoose
+bod-parser
+compression
+cookie-parser
+cors
+dotenv
+ejs
+express
+express-rate-limit
+helmet
+mongodb
+mongoose
+morgan
+swagger-jsdoc
+swagger-ui-express
+typescript
+winston
 ```
 ---
 
-## Konu
+## NPM 
 ```sh
-
+npm init
+npm init -y
 ```
 ---
 
-## Konu
-```sh
 
+## NPM INIT
+```sh
+npm init
+package name: 
+1-) herşeyi küçük harfle yaz
+2-) boşluk kullanma bunun yerine (- veya _ kullan)
+3-) Türkçe karakterlerden (üğşçö) kullanma
+
+package name: offline_node_blog
+version: v1.0.0 (Semantic version)
+description: Html5,css3,bootstrap5, js, es, nodejs, jquery, express,nodemon
+entry point: index.js
+test command: start 
+git repository: https://github.com/hamitmizrak/2025_techcareer_frontend_fullstack_1.git
+keywords: Html5,css3,bootstrap5, js, es, ejs, nodejs, nodemon, jquery, express
+author: Yüksek Bilgisayar Mühendisi Hamit Mızrak
+license: ISC
+Is this OK? yes
 ```
 ---
 
-## Konu
+
+## NPM INIT -Y 
 ```sh
 
+npm init -y
+Default
+{
+  "name": "2025_techcareer_frontend_fullstack_1",
+  "version": "1.0.0",
+  "description": "[GitHub Address](https://github.com/hamitmizrak/2025_techcareer_frontend_fullstack_1.git)\r [Mongo Database]()\r ---",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
 ```
 ---
 
-## Konu
+## NPM Sıklıkla Kullanılan Komutlar
 ```sh
+npm search express
+npm install express
+npm install express@4.16.1
+npm install express -g         # Global
+npm install express -D         # 
+npm install express            # Local
+npm install express --save     # Local
+npm install express --save-dev # Save
 
+npm install
+npm i
+npm update
+npm update express
+
+npm start
+npm test
+
+npm uninstall express
+npm uninstall express@4.16.1
+
+npm list
+npm list -g            # Globalde ben ne paketleri yüklemişim
+npm list -g --depth=0  # Globalde sadece ana branch'e yüklediklerimi bana göster
+
+
+npm root                 # Local projemizdeli node_modules kütüphanesini göstersin
+npm root -g              # GLocal projemizdeli node_modules kütüphanesini göstersin
+Global node_modules: C:\Users\Hamit-Mizrak\AppData\Roaming\npm\node_modules
 ```
 ---
 

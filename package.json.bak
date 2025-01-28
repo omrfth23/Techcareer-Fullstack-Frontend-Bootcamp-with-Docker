@@ -5,10 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-,"build_watch": "tsc -w --pretty",
-  "nodemon_app_watch": "nodemon --watch src --watch dist ./dist/index.js",
-  "dev:seri": "npm-run-all --serial build_watch nodemon_app_watch",
-  "dev:paralel": "concurrently -k \"npm run build_watch\" \"npm run nodemon_app_watch\""
   },
   "keywords": [],
   "author": "",

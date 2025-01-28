@@ -16,6 +16,7 @@ PACKAGE_JSON="Package Json"
 NPM_UPDATE="Npm Update"
 NPM_COMPILER="Npm Compiler"
 TYPESCRIPT="Typescript Install"
+PACKAGE_JSON="package.json"
 
 # ÖNEMLİ NOT: eğer windows üzerinden çalıştırıyorsanız sudo tanımayacaktır.
 # ÖNEMLİ NOT: nginx eğer browserda istediğiniz sonuç çıkmazsa browserin cache belleğini temizleyiniz. yoksa nginx'in kendi sayfasını görürüsünüz.
@@ -501,6 +502,53 @@ npm_compiler() {
     fi
 }
 npm_compiler
+
+
+#####################################################################################################
+#####################################################################################################
+# package.json revize script eklemek
+
+#!/bin/bash
+
+package_json_script_added() {
+    # Geriye Say
+    ./bashscript_countdown.sh
+
+    echo -e "\e[36m\n###### package.json Script ekle ######  \e[0m"
+    echo -e "\e[33mpackage.json script eklemek Yüklemek İster misiniz? e/h\e[0m"
+    read -p "" packageJsonScriptResult
+    if [[ $packageJsonScriptResult == "e" || $packageJsonScriptResult == "E" ]]; then
+        echo -e "\e[32m package.json Script Yüklenmeye başlandı...\e[0m"
+        # package.json dosyasının varlığını kontrol et
+        PACKAGE_JSON="package.json"
+        if [ ! -f "$PACKAGE_JSON" ]; then
+            echo "package.json dosyası bulunamadı. Script sonlandırılıyor."
+            exit 1
+        fi
+
+        # Yeni scriptler JSON formatında tanımlanıyor
+        NEW_SCRIPTS=',\"build_watch\": \"tsc -w --pretty\",\n  \"nodemon_app_watch\": \"nodemon --watch src --watch dist ./dist/index.js\",\n  \"dev:seri\": \"npm-run-all --serial build_watch nodemon_app_watch\",\n  \"dev:paralel\": \"concurrently -k \\\"npm run build_watch\\\" \\\"npm run nodemon_app_watch\\\"\"'
+
+        # "scripts" alanını bul ve "test" scriptinden sonra yeni scriptleri ekle
+        sed -i.bak "/\"test\": /a \
+  $NEW_SCRIPTS" "$PACKAGE_JSON"
+
+        # İşlem tamamlandı mesajı
+        if [ $? -eq 0 ]; then
+            echo "Scripts başarıyla eklendi. Güncellenmiş package.json dosyası:\n"
+            cat "$PACKAGE_JSON"
+        else
+            echo "Scripts eklenirken bir hata oluştu."
+            exit 1
+        fi
+
+    else
+        echo -e "\e[31mNpm Global Save Yüklenmeye Başlanmadı....\e[0m"
+    fi
+}
+
+package_json_script_added
+
 
 #####################################################################################################
 #####################################################################################################

@@ -191,29 +191,34 @@ npm install body-parser
 # https://www.npmjs.com/
 npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit  --save  
 npm list 
-
 npm i helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  typescript  winston --save  
 npm list 
+npm i nodemon typescript --save-dev
 
-npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  typescript  winston --save 
-
-npm i nodemon --save-dev
-
+npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  winston --save 
+npm list  
+npm i nodemon typescript --save-dev
 npm list  
 ```
 ---
 
 ## Npm Package Install (Global)
 ```sh
-npm list  
-npm list -g 
-npm root 
+npm list
+npm list -g
+npm root
 npm root -g
 
-npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit  -g    
-npm i helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  typescript  winston -g  
+npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit  -g
+npm list -g
+npm i helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  typescript  winston -g
+npm list -g
+npm i nodemon typescript --save-dev -g
+npm list -g
 
-npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  typescript  winston -g 
+npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  winston -g 
+npm list -g 
+npm i nodemon typescript --save-dev -g
 npm list -g 
 
 ```

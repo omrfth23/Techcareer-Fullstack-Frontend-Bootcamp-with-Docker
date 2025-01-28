@@ -17,6 +17,7 @@ NPM_UPDATE="Npm Update"
 NPM_COMPILER="Npm Compiler"
 TYPESCRIPT="Typescript Install"
 PACKAGE_JSON="package.json"
+SERVER_START="server start lite-server"
 
 # ÖNEMLİ NOT: eğer windows üzerinden çalıştırıyorsanız sudo tanımayacaktır.
 # ÖNEMLİ NOT: nginx eğer browserda istediğiniz sonuç çıkmazsa browserin cache belleğini temizleyiniz. yoksa nginx'in kendi sayfasını görürüsünüz.
@@ -126,7 +127,7 @@ index_html_install() {
         ></script>
 
         <!-- External Js -->
-        <script src="./src/index.js"></script>
+        <script src="./dist/index.js"></script>
     </body>
 </html>
 EOL
@@ -267,6 +268,7 @@ npm_local_dev_sav() {
 
         # https://www.npmjs.com/
         npm i nodemon typescript   --save-dev
+        npm install lite-server --save-dev
         npm i  @types/node dotenv concurrently --save-dev
         npm i eslint eslint-config-prettier eslint-plugin-prettier npm-run-all --save-dev
         npm i prettier ts-node --save-dev
@@ -303,6 +305,7 @@ npm_global_save() {
 
         # https://www.npmjs.com/
         npm i body-parser compression cors csurf cookie-parser ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  winston -g
+        npm install lite-server 
         npm list -g 
     else
         echo -e "\e[31mNpm Global Save Yüklenmeye Başlanmadı ....\e[0m"
@@ -315,23 +318,24 @@ npm_global_save
 # Typescript (Install)
 typescript_install() {
     # Geriye Sayım
-    if [ -f "./bashscript_countdown.sh" ]; then
+    ./bashscript_countdown.sh
+    #if [ -f "./bashscript_countdown.sh" ]; then
         ./bashscript_countdown.sh
-    else
+    #else
         echo -e "\e[31mGeriye sayım scripti (bashscript_countdown.sh) bulunamadı, devam ediliyor...\e[0m"
-    fi
+    #fi
 
     echo -e "\n\e[36m###### TypeScript Kurulumu ######\e[0m"
     echo -e "\e[33mTypeScript yüklemek ister misiniz? [e/h]\e[0m"
     read -r typescriptResult
-
     if [[ "$typescriptResult" == "e" || "$typescriptResult" == "E" ]]; then
         echo -e "\e[32mTypeScript yüklenmeye başlıyor...\e[0m"
 
         # Geriye Sayım
-        if [ -f "./bashscript_countdown.sh" ]; then
-            ./bashscript_countdown.sh
-        fi
+        ./bashscript_countdown.sh
+        #if [ -f "./bashscript_countdown.sh" ]; then
+        #    ./bashscript_countdown.sh
+        #fi
 
         # TypeScript kurulumları
         echo "Global TypeScript kurulumu yapılıyor..."
@@ -395,6 +399,7 @@ EOL
 // This is the initial content of index.ts
 let exam = "Merhabalar Ts";
 console.log(exam);
+alert("Typescript Merhabalar")
 EOL
             echo "index.ts oluşturuldu ve içerik eklendi."
             cd ..
@@ -508,8 +513,6 @@ npm_compiler
 #####################################################################################################
 # package.json revize script eklemek
 
-#!/bin/bash
-
 package_json_script_added() {
     # Geriye Say
     ./bashscript_countdown.sh
@@ -527,7 +530,7 @@ package_json_script_added() {
         fi
 
         # Yeni scriptler JSON formatında tanımlanıyor
-        NEW_SCRIPTS=',\"build_watch\": \"tsc -w --pretty\",\n  \"nodemon_app_watch\": \"nodemon --watch src --watch dist ./dist/index.js\",\n  \"dev:seri\": \"npm-run-all --serial build_watch nodemon_app_watch\",\n  \"dev:paralel\": \"concurrently -k \\\"npm run build_watch\\\" \\\"npm run nodemon_app_watch\\\"\"'
+        NEW_SCRIPTS=',\"server:start\": \"lite-server\",\n      \"build_watch\": \"tsc -w --pretty\",\n  \"nodemon_app_watch\": \"nodemon --watch src --watch dist ./dist/index.js\",\n  \"dev:seri\": \"npm-run-all --serial build_watch nodemon_app_watch\",\n  \"dev:paralel\": \"concurrently -k \\\"npm run build_watch\\\" \\\"npm run nodemon_app_watch\\\"\"'
 
         # "scripts" alanını bul ve "test" scriptinden sonra yeni scriptleri ekle
         sed -i.bak "/\"test\": /a \
@@ -548,6 +551,64 @@ package_json_script_added() {
 }
 
 package_json_script_added
+
+
+
+
+#####################################################################################################
+#####################################################################################################
+# Npm Compiler (Install)
+server_start() {
+    # Geriye Say
+    ./bashscript_countdown.sh
+
+    echo -e "\e[36m\n###### ${SERVER_START} ######  \e[0m"
+    echo -e "\e[33mLite-Server başlatmak ister misiniz ? e/h\e[0m"
+    read -p "" liteServerResult
+    if [[ $liteServerResult == "e" || $liteServerResult == "E" ]]; then
+        echo -e "\e[32mLite-Server ...\e[0m"
+
+        # Geriye Sayım
+        ./bashscript_countdown.sh
+
+        npm install lite-server --save-dev
+
+        # index.js yoksa oluştur
+        if [ ! -f "bs-config.json" ]; then
+            echo "bs-config.json oluşturuluyor..."
+            cat > bs-config.json <<EOL
+{
+  "port": 3000,
+  "files": ["./*.html", "./*.css", "./*.js"],
+  "server": {
+    "baseDir": "./",
+    "index": "index.html"
+  }
+}
+
+EOL
+            echo "bs-config.jsonoluşturuldu ve içerik eklendi."
+        else
+            echo "bs-config.json zaten mevcut."
+        fi
+
+        echo -e "\e[32mbs-config.json kurulumu tamamlandı!\e[0m"
+    else
+        echo -e "\e[31mbs-config.json kurulumu iptal edildi.\e[0m"
+    fi
+
+    # Server Başlatma
+    #npm run server:start
+}
+
+# Fonksiyonu çalıştır
+server_start
+
+
+#####################################################################################################
+#####################################################################################################
+# Typescript başlat
+npm run dev:paralel
 
 
 #####################################################################################################

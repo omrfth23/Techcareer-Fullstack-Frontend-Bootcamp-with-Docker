@@ -150,11 +150,11 @@ Default
 npm search express
 npm install express
 npm install express@4.16.1
-npm install express -g         # Global
-npm install express -D         # 
 npm install express            # Local
 npm install express --save     # Local
-npm install express --save-dev # Save
+npm install express --save-dev # dev-dependencies
+npm install express -D         # dev-dependencies
+npm install express -g         # Global
 
 npm install
 npm i
@@ -171,6 +171,7 @@ npm uninstall express@4.16.1
 ## NPM Sıklıkla Kullanılan Komutlar-2
 ```sh
 npm list
+npm ls
 npm list -g            # Globalde ben ne paketleri yüklemişim
 npm list -g --depth=0  # Globalde sadece ana branch'e yüklediklerimi bana göster
 
@@ -185,8 +186,11 @@ Global node_modules: C:\Users\Hamit-Mizrak\AppData\Roaming\npm\node_modules
 ```sh
 npm update     # package.json içindeki dosyalardaki paketleri günceller
 npm outdated   # Projede eskiyen veya güncellenmesi gereken paketleride gösterir
-npm audit      # BAğımlılıkların gücenlik analizleri rapor eder
+npm audit      # Bağımlılıkların gücenlik analizleri rapor eder
 npm audit fix  # Belirlenen güvenlik açıklarını otomatik olarak düzeltir.
+npm dedupe     # Bağımlılıkların tekrarlanan kopyalarını temizler.
+npm info <paket-adi> #  Belirli paketin detaylı bilgileri gösterir
+npm cache clean --force # npm önbelleğini temizler
 ```
 ---
 
@@ -229,9 +233,7 @@ npm list -g
 npm i nodemon typescript --save-dev -g
 npm list -g
 
-npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  winston -g 
-npm list -g 
-npm i nodemon typescript --save-dev -g
+npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express nodemon typescript  winston -g 
 npm list -g 
 
 ```

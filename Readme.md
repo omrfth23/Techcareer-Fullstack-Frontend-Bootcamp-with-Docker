@@ -5,9 +5,11 @@
 
 ## Version
 ```sh
+code .
 git -v
 node -v
 npm -v
+tsc --version
 ```
 ---
 
@@ -24,6 +26,8 @@ git push -u origin main
 git branch
 git pull
 git pull origin master
+
+git clone https://github.com/hamitmizrak/2025_techcareer_frontend_fullstack_1.git
 
 ```
 ---
@@ -167,6 +171,14 @@ npm uninstall express@4.16.1
 ```
 ---
 
+## npm delete
+```sh
+rm -rf node_modules
+npm install
+
+```
+---
+
 
 ## NPM Sıklıkla Kullanılan Komutlar-2
 ```sh
@@ -184,37 +196,52 @@ Global node_modules: C:\Users\Hamit-Mizrak\AppData\Roaming\npm\node_modules
 
 ## NPM Sıklıkla Kullanılan Komutlar-3
 ```sh
-npm update     # package.json içindeki dosyalardaki paketleri günceller
-npm outdated   # Projede eskiyen veya güncellenmesi gereken paketleride gösterir
-npm audit      # Bağımlılıkların gücenlik analizleri rapor eder
-npm audit fix  # Belirlenen güvenlik açıklarını otomatik olarak düzeltir.
-npm dedupe     # Bağımlılıkların tekrarlanan kopyalarını temizler.
-npm info <paket-adi> #  Belirli paketin detaylı bilgileri gösterir
+npm update              # package.json içindeki dosyalardaki paketleri günceller
+npm outdated            # Projede eskiyen veya güncellenmesi gereken paketleride gösterir
+npm audit               # Bağımlılıkların gücenlik analizleri rapor eder
+npm audit fix           # Belirlenen güvenlik açıklarını otomatik olarak düzeltir.
+npm dedupe              # Bağımlılıkların tekrarlanan kopyalarını temizler.
+npm rebuild             # Tüm bağımlıkları yeniden derleme
+
+npm info <paket-adi>    #  Belirli paketin detaylı bilgileri gösterir
 npm cache clean --force # npm önbelleğini temizler
+npm cache verify        # Cache dorğulaması
+npm config list         # (Npm yapılandırılmalarını görmek içindir)
+npm config set <key> <value> #  npm config set registry https://registry.npmjs.org/  )
+
+# https://www.npmjs.com/
+npm login                # npm hesabınıza giriş içindir)
+npm pack                 # Node.js paketini .tgz sıkıştırma formatında ekliyor
+npm publish              # ilgili pkaeti npm gönder
 ```
 ---
 
 
-## Npm Package Install (Local) 
+## Npm Package Install (Local --save) 
 ```sh
 npm list  
 npm list -g 
 npm root 
 npm root -g
 
-npm install ejs
-npm install body-parser
+# https://www.npmjs.com/
+npm i body-parser compression cors csurf cookie-parser ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  winston --save 
+npm list  
+```
+---
+
+## Npm Package Install (Local --save-dev) 
+```sh
+npm list  
+npm list -g 
+npm root 
+npm root -g
 
 # https://www.npmjs.com/
-npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit  --save  
-npm list 
-npm i helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  typescript  winston --save  
-npm list 
-npm i nodemon typescript --save-dev
-
-npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  winston --save 
-npm list  
-npm i nodemon typescript --save-dev
+npm i nodemon typescript   --save-dev
+npm i nodemon @types/node dotenv concurrently --save-dev
+npm i eslint eslint-config-prettier eslint-plugin-prettier npm-run-all --save-dev
+npm i prettier ts-node --save-dev
 npm list  
 ```
 ---
@@ -226,37 +253,68 @@ npm list -g
 npm root
 npm root -g
 
-npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit  -g
-npm list -g
-npm i helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  typescript  winston -g
-npm list -g
-npm i nodemon typescript --save-dev -g
-npm list -g
-
-npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express nodemon typescript  winston -g 
+npm i body-parser compression cors csurf cookie-parser ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  winston -g
 npm list -g 
 
 ```
 ---
 
 
+## Nodemon kurulum
+```sh
+npm install  nodemon -g
+npm install  nodemon --save-dev
+nodemon ./src/index.js
+```
+---
+
 ## package.json içinden Script yazmak
 ```sh
-
+  "scripts": {
+    "start_app": "ts-node src/app.ts",
+    "start_index": "ts-node src/app.ts",
+    "dev_app": "nodemon src/app.ts",
+    "dev_index": "nodemon src/index.ts",
+    "build": "tsc",
+    "build_watch": "tsc -w",
+    "start_app:app": "node dist/app.js",
+    "start_index:index": "node dist/index.js",
+    "nodemon_app": "nodemon ./dist/app.js",
+    "nodemon_app_watch": "nodemon --watch src --watch dist ./dist/app.js",
+    "nodemon_index": "nodemon ./dist/index.js",
+    "nodemon_index_watch": "nodemon --watch src --watch dist ./dist/index.js",
+    "asenkron_app": "concurrently \"npm run build_watch\" \"npm run nodemon_app_watch\"",
+    "asenkron_index": "concurrently \"npm run build_watch\" \"npm run nodemon_index_watch\"",
+    "senkron:app": "npm-run-all --parallel  build_watch nodemon_app_watch",
+    "senkron:index": "npm-run-all --parallel  build_watch nodemon_index_watch"
+  }
 ```
 ---
 
-## Konu
+
+## Nodemon
 ```sh
-
+script 
+bashscript
 ```
 ---
 
-## Konu
+
+
+## Typescript kurulum
 ```sh
+npm install typescript -g          # global
+npm install typescript --save-dev  # local
 
+tsconfig dosyası için aşağıdaki komutu çalıştır:
+tsc --init --locale tr
+tsc --init
+
+tsc 
+tsc -w (Sistem kendi compiler yapıyor yazdıklarımı kendi ekliyor.)
 ```
 ---
+
 
 ## Konu
 ```sh

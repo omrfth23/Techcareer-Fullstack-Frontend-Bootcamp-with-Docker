@@ -2,9 +2,13 @@
   "name": "2025_techcareer_frontend_fullstack_1",
   "version": "1.0.0",
   "description": "[GitHub Address](https://github.com/hamitmizrak/2025_techcareer_frontend_fullstack_1.git)\r [Mongo Database]()\r ---",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build_watch": "tsc -w --pretty",
+    "nodemon_app_watch": "nodemon --watch src --watch dist ./dist/index.js",
+    "dev:seri": "npm-run-all --serial build_watch nodemon_app_watch",
+    "dev:paralel": "concurrently -k \"npm run build_watch\" \"npm run nodemon_app_watch\""
   },
   "keywords": [],
   "author": "",

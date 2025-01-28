@@ -260,6 +260,31 @@ npm list -g
 ---
 
 
+## Typescript kurulum
+```sh
+npm install typescript -g          # global
+npm install typescript --save-dev  # local
+
+tsconfig dosyası için aşağıdaki komutu çalıştır:
+tsc --init --locale tr
+tsc --init
+
+tsc 
+tsc -w (Sistem kendi compiler yapıyor yazdıklarımı kendi ekliyor.)
+```
+---
+
+
+## Konu
+```sh
+
+src/index.ts => eklemek ve içine şunu ekle 
+let exam = "Merhabalar Ts";
+console.log(exam);
+
+```
+---
+
 ## Nodemon kurulum
 ```sh
 npm install  nodemon -g
@@ -301,26 +326,7 @@ bashscript
 
 
 
-## Typescript kurulum
-```sh
-npm install typescript -g          # global
-npm install typescript --save-dev  # local
 
-tsconfig dosyası için aşağıdaki komutu çalıştır:
-tsc --init --locale tr
-tsc --init
-
-tsc 
-tsc -w (Sistem kendi compiler yapıyor yazdıklarımı kendi ekliyor.)
-```
----
-
-
-## Konu
-```sh
-
-```
----
 
 ## Konu
 ```sh

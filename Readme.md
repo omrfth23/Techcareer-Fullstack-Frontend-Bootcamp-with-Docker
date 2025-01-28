@@ -196,6 +196,9 @@ npm i helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  typescrip
 npm list 
 
 npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  typescript  winston --save 
+
+npm i nodemon --save-dev
+
 npm list  
 ```
 ---

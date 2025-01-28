@@ -145,7 +145,7 @@ Default
 ```
 ---
 
-## NPM Sıklıkla Kullanılan Komutlar
+## NPM Sıklıkla Kullanılan Komutlar-1
 ```sh
 npm search express
 npm install express
@@ -158,25 +158,38 @@ npm install express --save-dev # Save
 
 npm install
 npm i
+
 npm update
 npm update express
 
-npm start
-npm test
-
 npm uninstall express
 npm uninstall express@4.16.1
+```
+---
 
+
+## NPM Sıklıkla Kullanılan Komutlar-2
+```sh
 npm list
 npm list -g            # Globalde ben ne paketleri yüklemişim
 npm list -g --depth=0  # Globalde sadece ana branch'e yüklediklerimi bana göster
-
 
 npm root                 # Local projemizdeli node_modules kütüphanesini göstersin
 npm root -g              # GLocal projemizdeli node_modules kütüphanesini göstersin
 Global node_modules: C:\Users\Hamit-Mizrak\AppData\Roaming\npm\node_modules
 ```
 ---
+
+
+## NPM Sıklıkla Kullanılan Komutlar-3
+```sh
+npm update     # package.json içindeki dosyalardaki paketleri günceller
+npm outdated   # Projede eskiyen veya güncellenmesi gereken paketleride gösterir
+npm audit      # BAğımlılıkların gücenlik analizleri rapor eder
+npm audit fix  # Belirlenen güvenlik açıklarını otomatik olarak düzeltir.
+```
+---
+
 
 ## Npm Package Install (Local) 
 ```sh
@@ -225,7 +238,7 @@ npm list -g
 ---
 
 
-## Konu
+## package.json içinden Script yazmak
 ```sh
 
 ```

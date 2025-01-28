@@ -178,23 +178,44 @@ Global node_modules: C:\Users\Hamit-Mizrak\AppData\Roaming\npm\node_modules
 ```
 ---
 
-## Konu
+## Npm Package Install (Local) 
 ```sh
+npm list  
+npm list -g 
+npm root 
+npm root -g
+
+npm install ejs
+npm install body-parser
+
+# https://www.npmjs.com/
+npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit  --save  
+npm list 
+
+npm i helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  typescript  winston --save  
+npm list 
+
+npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  typescript  winston --save 
+npm list  
+```
+---
+
+## Npm Package Install (Global)
+```sh
+npm list  
+npm list -g 
+npm root 
+npm root -g
+
+npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit  -g    
+npm i helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  typescript  winston -g  
+
+npm i body-parser compression cors csurf cookie-parser  dotenv ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  typescript  winston -g 
+npm list -g 
 
 ```
 ---
 
-## Konu
-```sh
-
-```
----
-
-## Konu
-```sh
-
-```
----
 
 ## Konu
 ```sh

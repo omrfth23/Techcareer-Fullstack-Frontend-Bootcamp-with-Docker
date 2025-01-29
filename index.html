@@ -63,30 +63,108 @@
     <!-- Start Codes -->
 
     <!-- nav start -->
-    <nav id="navbar">
-      <!-- div.top_bar>div.container>div.row>(div.left.col-lg-7.col-md-9.col-xs-12>ul.clearfix.links>(li>i)*3)+(div.rigt.col-lg-5.col-md-3.col-xs-12>div.icon_right>a{Login}+a{Register}) -->
+    <nav id="navbar_first">
+      <!-- div.top_bar>div.container>div.row>(div.col-lg-7.col-md-9.col-xs-12>ul.clearfix.links>(li>i)*3)+(div.col-lg-5.col-md-3.col-xs-12>div.first_right>a{Login}+a{Register}) -->
+      <!-- div.top_bar>div.container>div.row>(div.col-lg-7.col-md-9.col-xs-12>ul.clearfix.links>li({Home}>i)+li({Blog}>i)+li({Newspaper}>i)+li({Contanct}>i))+(div.col-lg-5.col-md-3.col-xs-12>div.first_right>(a{Login}+a{Register})) -->
       <div class="top_bar">
         <div class="container">
           <div class="row">
-            <div class="left col-lg-7 col-md-9 col-xs-12">
+            <div class="col-lg-7 col-md-9 col-xs-12">
+              <div id="first_left">
               <ul class="clearfix links">
-                <li><i> </i></li>
-                <li><i> </i></li>
-                <li><i> </i></li>
+                
+                <li><a class=" text-primary me-3" href="tel:++90 111 222 33 44"><i class="fa-solid fa-phone-flip"></i><span>+90 111 222 33 44</span></a> </li>
+                <li><a class=" text-primary me-3" href="tel:++90 111 222 33 44"><i class="fa-solid fa-phone-flip"></i><span>whatsapp</span></a> </li>
+                <li><a class=" text-primary me-3" href="tel:++90 111 222 33 44"><i class="fa-solid fa-phone-flip"></i><span>Mail</span></a> </li>
               </ul>
             </div>
+            </div>
+            <div class="col-lg-5 col-md-3 col-xs-12">
+              <div id="first_right">
+                <a href="" title="login" class="text-primary"><i class="fa-solid fa-user"></i></a>
+                <a href="" title="register"  class="text-warning"><i class="fa-solid fa-user-secret"></i></a>
+                <a href="" title="admin"  class="text-danger"><i class="fa-solid fa-user-shield"></i></a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="right col-lg-5 col-md-3 col-xs-12">
-        <div class="icon_right">
-          <a href="">Login</a>
-          <a href="">Register</a>
         </div>
       </div>
     </nav>
     <!-- nav end -->
 
+    <nav id="navbar_second"
+      class="navbar navbar-expand-md navbar-dark bg-dark"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">LOGO</a>
+        <button
+          class="navbar-toggler d-lg-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapsibleNavId"
+          aria-controls="collapsibleNavId"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#" aria-current="page"
+                ><i class="fa-solid fa-house-chimney"></i><span>Home</span>
+                <span class="visually-hidden">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa-regular fa-newspaper"></i><span>Newspaper</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa-solid fa-blog"></i><span>Blog</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa-solid fa-id-card"></i><span>Contact</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="dropdownId"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Dropdown</a
+              >
+              <div
+                class="dropdown-menu"
+                aria-labelledby="dropdownId"
+              >
+                <a class="dropdown-item" href="#"
+                  >Action 1</a
+                >
+                <a class="dropdown-item" href="#"
+                  >Action 2</a
+                >
+              </div>
+            </li>
+          </ul>
+          <form class="d-flex my-2 my-lg-0">
+            <input
+              class="form-control me-sm-2"
+              type="text"
+              placeholder="Search"
+            />
+            <button
+              class="btn btn-outline-success my-2 my-sm-0"
+              type="submit"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    
     <!-- header start -->
     <header id="header"></header>
     <!-- header end -->

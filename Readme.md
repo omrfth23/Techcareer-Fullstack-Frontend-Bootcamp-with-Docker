@@ -61,8 +61,16 @@ Rainbow Brackets           => MHammed Talhaouy
 
 ## VSCode settings.json
 ```sh
-    "emmet.includeLanguages": {
-         "javascript": "javascriptreact"
+        "emmet.includeLanguages": {
+        "javascript": "html",
+        "javascriptreact": "html",
+        "typescriptreact": "html"
+    },
+    "emmet.triggerExpansionOnTab": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
     },
 ```
 ---

@@ -8,6 +8,7 @@ Description: Blog
 :root {
   --template-bg: #f9ecec;
   --template-color: #201f1f;
+  --first-navbar_first-bg: #101111;
   --max-width: 100%;
   --blue: #007bff;
   --indigo: #6610f2;
@@ -122,4 +123,43 @@ img:hover {
     -webkit-line-clamp: 20;
     -webkit-box-orient: vertical;
 }
+
+
+/* #### navbar_first ################################################################# */
+#navbar_first{
+  max-height: 4rem;
+  max-width: 100%!important;
+  background-color: var(--first-navbar_first-bg);
+  color: var(--white);
+  padding:1.5rem;
+}
+
+#navbar_first #first_left{
+  float:left;
+}
+
+#navbar_first #first_rigt{
+  float:right;
+}
+
+#navbar_first ul li {
+  display: inline-block;
+}
+
+#navbar_first i {
+  margin-right: 0.3rem;
+}
+
+#navbar_first span {
+  margin-right: 2.1rem;
+}
+
+
+/* #### Header ################################################################# */
+
+/* #### Main ################################################################# */
+
+/* #### Footer ################################################################# */
+
+/* #### Named Query ################################################################# */
 

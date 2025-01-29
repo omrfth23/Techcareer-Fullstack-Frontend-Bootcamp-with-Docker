@@ -1,9 +1,9 @@
 
+#!/bin/bash
+
 # Shebang (#!/): Betiğin Bash kabuğu ile çalışacağını gösterir.
 # bin/bash: names
 # İşletim sistemine Bash betiğinin çalışacağını söyler
-
-#!/bin/bash
 
 echo -e "\e[34m Kurulumlar\e[0m"
 
@@ -33,7 +33,6 @@ BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
 NC=='\033[0m' # No Color
 ###################################################
-
 
 # ÖNEMLİ NOT: eğer windows üzerinden çalıştırıyorsanız sudo tanımayacaktır.
 # ÖNEMLİ NOT: nginx eğer browserda istediğiniz sonuç çıkmazsa browserin cache belleğini temizleyiniz. yoksa nginx'in kendi sayfasını görürüsünüz.
@@ -163,8 +162,6 @@ EOL
 # Fonksiyonu çalıştır
 index_html_install
 
-
-
 #####################################################################################################
 #####################################################################################################
 # gitignore_install (Install)
@@ -188,7 +185,7 @@ gitignore_install() {
             echo ".gitignore oluşturuluyor..."
             cat > .gitignore <<EOL
 # Special My Git untrackted
-node_modules
+/node_modules
 EOL
             echo ".gitignore oluşturuldu ve içerik eklendi."
         else
@@ -203,7 +200,6 @@ EOL
 
 # Fonksiyonu çalıştır
 gitignore_install
-
 
 #####################################################################################################
 #####################################################################################################
@@ -436,8 +432,6 @@ EOL
 # Fonksiyonu çalıştır
 typescript_install
 
-
-
 #####################################################################################################
 #####################################################################################################
 # Nodemon (Install)
@@ -528,11 +522,9 @@ npm_compiler() {
 }
 npm_compiler
 
-
 #####################################################################################################
 #####################################################################################################
 # package.json revize script eklemek
-
 package_json_script_added() {
     # Geriye Say
     ./bashscript_countdown.sh
@@ -569,11 +561,7 @@ package_json_script_added() {
         echo -e "\e[31mNpm Global Save Yüklenmeye Başlanmadı....\e[0m"
     fi
 }
-
 package_json_script_added
-
-
-
 
 #####################################################################################################
 #####################################################################################################
@@ -624,8 +612,6 @@ EOL
 # Fonksiyonu çalıştır
 server_start
 
-
-
 #####################################################################################################
 #####################################################################################################
 # Git (Install)
@@ -649,7 +635,6 @@ git_push() {
     fi
 }
 git_push
-
 
 #####################################################################################################
 #####################################################################################################

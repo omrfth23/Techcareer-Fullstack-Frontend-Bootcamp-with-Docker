@@ -59,6 +59,17 @@ Rainbow Brackets           => MHammed Talhaouy
 ```
 ---
 
+## VSCode settings.json
+```sh
+    "emmet.includeLanguages": {
+         "javascript": "javascriptreact"
+    },
+```
+---
+
+
+
+
 ## Teknoloji İsimleri
 ```sh
 HTML5

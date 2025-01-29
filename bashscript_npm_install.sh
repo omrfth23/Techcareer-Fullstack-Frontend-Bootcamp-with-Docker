@@ -331,6 +331,7 @@ npm_global_save
 #####################################################################################################
 # Typescript (Install)
 typescript_install() {
+    
     # Geriye Sayım
     ./bashscript_countdown.sh
     #if [ -f "./bashscript_countdown.sh" ]; then

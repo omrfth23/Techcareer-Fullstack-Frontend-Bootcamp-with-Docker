@@ -9,15 +9,31 @@ echo -e "\e[34m Kurulumlar\e[0m"
 
 # User Variables
 INFORMATION="Bilgi"
-NPM_SAVE="Npm Save Yükleniyor"
-NPM_SAVE_DEV="Npm Save Dev Yükleniyor"
-NPM_GLOBAL="Npm Global Yükleniyor"
-PACKAGE_JSON="Package Json"
+NPM_SAVE="Npm Save Loading..."
+NPM_SAVE_DEV="Npm Save Dev Loading..."
+NPM_GLOBAL="Npm Global Loading..."
+PACKAGE="Package Common File"
 NPM_UPDATE="Npm Update"
 NPM_COMPILER="Npm Compiler"
 TYPESCRIPT="Typescript Install"
 PACKAGE_JSON="package.json"
 SERVER_START="server start lite-server"
+
+###################################################
+# Color
+# red=$(tput setaf 1)
+# green=$(tput setaf 2)
+# yellow=$(tput setaf 3)
+# blue=$(tput setaf 4)
+# magenta=$(tput setaf 5)
+# cyan=$(tput setaf 6)
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[0;33m'
+NC=='\033[0m' # No Color
+###################################################
+
 
 # ÖNEMLİ NOT: eğer windows üzerinden çalıştırıyorsanız sudo tanımayacaktır.
 # ÖNEMLİ NOT: nginx eğer browserda istediğiniz sonuç çıkmazsa browserin cache belleğini temizleyiniz. yoksa nginx'in kendi sayfasını görürüsünüz.
@@ -35,7 +51,7 @@ create_empty_files_if_not_exists() {
     # Geriye Say
     ./bashscript_countdown.sh    
 
-    echo -e "\e[36m\n###### ${PACKAGE_JSON} ######  \e[0m"
+    echo -e "\e[36m\n###### ${PACKAGE} ######  \e[0m"
     echo -e "\e[33mGenel Dosyaları Yüklemek İster misiniz ? e/h\e[0m"
     read -p "" packageResult
     if [[ $packageResult == "e" || $packageResult == "E" ]]; then
@@ -48,20 +64,19 @@ create_empty_files_if_not_exists() {
             if [ ! -f "$file" ]; then
                 echo "$file dosyası oluşturuluyor..."
                 touch "$file"
-                echo "$file başarıyla oluşturuldu."
+                echo "${YELLOW} $file başarıyla oluşturuldu.\n"
             else
-                echo "$file zaten mevcut, oluşturulmadı."
+                echo -e "$file zaten mevcut, oluşturulmadı.\n"
             fi
         done
     else
-        echo -e "\e[31mpackage Yüklenmeye Başlanmadı ....\e[0m"
+        echo -e "${RED}package Yüklenmeye Başlanmadı ....\e[0m"
     fi
 }
 
 # Fonksiyon çağrısı
 # Örnek olarak tüm dosyalar için çağrı
 create_empty_files_if_not_exists Dockerfile docker-compose.yml .gitlab-ci.yml  Readme.md style.css test.py shorting_keyboard.txt
-
 
 #####################################################################################################
 #####################################################################################################
@@ -88,8 +103,11 @@ index_html_install() {
 <html lang="en">
     <head>
         <title>Typescript Öğreniyorum</title>
-        <!-- Required meta tags -->
+
+        <!-- for language -->
         <meta charset="utf-8" />
+
+        <!-- for responsive design -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
         <!-- Bootstrap CSS v5.2.1 -->
@@ -138,7 +156,7 @@ EOL
 
         echo -e "\e[32mindex.html kurulumu tamamlandı!\e[0m"
     else
-        echo -e "\e[31mindex.html kurulumu iptal edildi.\e[0m"
+        echo -e "${RED}index.html kurulumu iptal edildi.\e[0m"
     fi
 }
 
@@ -480,6 +498,8 @@ npm_update() {
         npm outdated
         npm install
         npm update
+        npm dedupe  # Bağımlılıkların tekrarlanan kopyalarını temizler.
+        npm list  
     else
         echo -e "\e[31mNpm Global Save Yüklenmeye Başlanmadı ....\e[0m"
     fi

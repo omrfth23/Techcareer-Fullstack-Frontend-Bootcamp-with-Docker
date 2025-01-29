@@ -2,6 +2,10 @@
 
 [GitHub Address](https://github.com/hamitmizrak/2025_techcareer_frontend_fullstack_1.git)
 [Mongo Database]()
+[Font Awesome](https://fontawesome.com/search?ic=free)
+[Google Font](https://fonts.google.com/selection/embed)
+[Bootstrap](https://getbootstrap.com/)
+[Box Shadow Online](https://cssgenerator.pl/en/box-shadow-generator/)
 ---
 
 # Typescript başlat

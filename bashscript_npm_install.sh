@@ -18,6 +18,7 @@ NPM_COMPILER="Npm Compiler"
 TYPESCRIPT="Typescript Install"
 PACKAGE_JSON="package.json"
 SERVER_START="server start lite-server"
+MONGO_ENV="Mongo ENV"
 
 ###################################################
 # Color
@@ -331,7 +332,7 @@ npm_global_save
 #####################################################################################################
 # Typescript (Install)
 typescript_install() {
-    
+
     # Geriye Sayım
     ./bashscript_countdown.sh
     #if [ -f "./bashscript_countdown.sh" ]; then
@@ -612,6 +613,45 @@ EOL
 
 # Fonksiyonu çalıştır
 server_start
+
+
+#####################################################################################################
+#####################################################################################################
+# Npm Compiler (Install)
+mongo_env() {
+    # Geriye Say
+    ./bashscript_countdown.sh
+
+    echo -e "\e[36m\n###### ${MONGO_ENV} ######  \e[0m"
+    echo -e "\e[33mMongo için .env oluşturulsun mu ? e/h\e[0m"
+    read -p "" mongoEnvResult
+    if [[ $mongoEnvResult == "e" || $mongoEnvResult == "E" ]]; then
+        echo -e "\e[32mMongoENV ...\e[0m"
+
+        # Geriye Sayım
+        ./bashscript_countdown.sh
+
+        # index.js yoksa oluştur
+        if [ ! -f ".env" ]; then
+            echo ".env oluşturuluyor..."
+            cat > .env <<EOL
+MONGO_USERNAME=hamitmizrak
+MONGO_PASSWORD=C5445Xrl
+EOL
+            echo ".env.json oluşturuldu ve içerik eklendi."
+        else
+            echo ".env zaten mevcut."
+        fi
+
+        echo -e "\e[32m.env kurulumu tamamlandı!\e[0m"
+    else
+        echo -e "\e[31m.env kurulumu iptal edildi.\e[0m"
+    fi
+}
+
+# Fonksiyonu çalıştır
+mongo_env
+
 
 #####################################################################################################
 #####################################################################################################

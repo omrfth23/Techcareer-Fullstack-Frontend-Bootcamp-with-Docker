@@ -246,9 +246,22 @@ header{
 }
 /* #### Main ############################################################################################## */
 
+/* our icon */
+#out_icon{
+  margin-top:3.5rem;
+  margin-bottom:3rem;
+}
+
+#out_icon .message i{
+  font-size: 6rem;
+  margin-bottom:0.5rem;
+  opacity: 0.8;
+}
+
+
 /* blog */
 #blog{
-  background-color: #c2d0de;
+  background-color: #f0f3f6;
   padding: 1rem;
 }
 

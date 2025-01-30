@@ -142,7 +142,7 @@ create_empty_files_if_not_exists() {
 
 # Fonksiyon çağrısı
 # Örnek olarak tüm dosyalar için çağrı
-create_empty_files_if_not_exists Dockerfile docker-compose.yml .gitlab-ci.yml  Readme.md style.css test.py shorting_keyboard.txt test.sh
+create_empty_files_if_not_exists Dockerfile docker-compose.yml .gitlab-ci.yml  Readme.md style.css test.py shorting_keyboard.txt test.sh index.js
 
 #####################################################################################################
 #####################################################################################################

@@ -56,9 +56,17 @@
 
     <!-- External Css -->
     <link rel="stylesheet" href="./style.css" />
+
+        <!-- Internal Css -->
+         <style>
+          p,h2{
+            color:black;
+          }
+         </style>
+
   </head>
 
-  <body data-bs-spy="scroll" data-bs-target="#navbar">
+  <body data-bs-spy="scroll" data-bs-target="#navbar_second">
     <noscript>Bu web sitesi javascript'i desteklenmiyor</noscript>
     <!-- Start Codes -->
     <!-- 2097 -->
@@ -114,7 +122,7 @@
     <!-- Ana Navbar -->
     <nav
       id="navbar_second"
-      class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm fixed-top"
+      class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm fixed-top44"
     >
       <div class="container">
         <!-- Logo -->
@@ -136,22 +144,29 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active nav-hover" href="#"
+              <a class="nav-link active nav-hover" href="#header"
                 ><i class="fa-solid fa-house"></i> Home</a
               >
             </li>
+
             <li class="nav-item">
-              <a class="nav-link nav-hover" href="#"
+              <a class="nav-link nav-hover" href="#out_icon"
+                ><i class="fa-regular fa-newspaper"></i> Our</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link nav-hover" href="#newspaper"
                 ><i class="fa-regular fa-newspaper"></i> Newspaper</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-hover" href="#"
+              <a class="nav-link nav-hover" href="#blog"
                 ><i class="fa-solid fa-blog"></i> Blog</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-hover" href="#"
+              <a class="nav-link nav-hover" href="#footer"
                 ><i class="fa-solid fa-id-card"></i> Contact</a
               >
             </li>
@@ -213,11 +228,12 @@
 
     <!-- main start -->
     <main id="main">
+
       <!-- ICON -->
       <!-- section#out_icon>div.message>h2.text-center.text-uppercase.mt-3.mb-3+div.container>div.row>(div.col-12.col-md-3.col-xl-4.text-center>i+h4{Başlık-$}+p.line-clamp4.text-center{lorem20}+a.btn.btn-primary{More...})*3 -->
       <section id="out_icon">
         <div class="message">
-          <h2 class="text-center text-uppercase mt-3 mb-3"></h2>
+          <h2 class="text-center text-uppercase mt-3 mb-5 text-light display-5">Yaptığımız İşler</h2>
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-3 col-xl-4 text-center">
@@ -260,7 +276,7 @@
        <section id="newspaper">
         <div class="container">
           <div class="row">
-            <h2 class="text-uppercase display-6 text-center">Newspaper</h2>
+            <h2 class="text-center text-uppercase mt-3 mb-5  display-5">Yeni Haber</h2>
             <p id="newspaper_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem harum perferendis maxime rerum soluta at reprehenderit possimus sint alias error repudiandae, asperiores nihil earum quas consequuntur deserunt nostrum voluptas magnam.
             Blanditiis quasi quae voluptatibus fugiat, quos placeat incidunt ea aspernatur doloribus! Est nihil iusto ullam obcaecati incidunt consequuntur minima dicta ducimus ipsam laborum maiores commodi minus aspernatur beatae, illum excepturi!
             Fugit est distinctio cupiditate. Sit ea doloribus illum culpa, reprehenderit velit atque iusto perferendis assumenda voluptas quas? Dolorem unde esse, deserunt omnis dolores recusandae quae facilis molestiae perspiciatis debitis minima.
@@ -276,7 +292,8 @@
       <!-- BLOG -->
       <!-- section#blog.container.my-4.mb-4>h2.text-center.mb-3.mt-1{Son 6 Blog}+div.row>(div.col-md-4.mb-4>div.card.blog-card>img.card-img-top+div.card-body>h5.card-title.text-center.h1.text-uppercase{başlık-$}+p.card-text.line-clamp8{içerik-$}+a.btn.btn-primary{Daha Fazla})*9 -->
       <section id="blog" class="container container-fluid44 my-4 mb-4">
-        <h2 class="text-center mb-3 mt-1">Son 6 Blog</h2>
+        <h2 class="text-center text-uppercase mt-3 mb-5 text-light display-5">Bloglar</h2>
+        <h2 class="text-center mb-3 mt-1" style="color:white;">Son 6 Blog</h2>
         <div class="row">
           <!-- card-1 -->
           <div class="col-md-4 mb-4" id="card_body">
@@ -725,12 +742,15 @@
       <!-- Copyright -->
       <div
         class="text-center p-3"
-        style="background-color: rgba(0, 0, 0, 0.05)"
+        style="background-color: rgba(0, 0, 0); ;"
       >
-        © 2020 Copyright:
+      <p style="text-align: center; color:white">
+        © &copy; 2020 Copyright:
         <a class="text-reset fw-bold" href="https://mdbootstrap.com/"
           >Design By: MSc Hamit Mızrak</a
         >
+      </p>
+        
       </div>
       <!-- Copyright -->
     </footer>

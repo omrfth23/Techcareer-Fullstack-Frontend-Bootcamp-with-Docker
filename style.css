@@ -12,6 +12,7 @@ Description: Blog
   --max-width: 100%;
 
   /* Renk Tanımları */
+  --atrasit: #2F2F2F;
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -47,8 +48,8 @@ html {
 }
 
 body {
-  background-color: var(--template-bg);
-  color: var(--first-navbar-bg);
+  background-color: var(--atrasit);
+  color: var(--light);
   font-size: 1.2rem;
   line-height: 1.7;
   position: relative;
@@ -68,6 +69,7 @@ p {
   font-size: 1.2rem;
   font-weight: 300;
   font-family: "Lucida Sans", Geneva, Verdana, sans-serif;
+  color: var(--dark)!important;
 }
 
 i {
@@ -275,6 +277,10 @@ header {
   font-size: 6rem;
   margin-bottom: 0.5rem;
   opacity: 0.8;
+}
+
+#out_icon p{
+  color: var(--light)!important;
 }
 
 /* Newspaper */

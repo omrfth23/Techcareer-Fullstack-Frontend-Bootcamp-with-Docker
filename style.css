@@ -12,7 +12,7 @@ Description: Blog
   --max-width: 100%;
 
   /* Renk Tanımları */
-  --atrasit: #2F2F2F;
+  --atrasit: #2f2f2f;
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -55,6 +55,7 @@ body {
   font-size: 1.2rem;
   line-height: 1.7;
   position: relative;
+  padding-top:110px  /* 50px+60px=110px navbar_first height:50px+ navbar_second height: 60px calc(50+60); */
 }
 
 a {
@@ -71,11 +72,11 @@ p {
   font-size: 1.2rem;
   font-weight: 300;
   font-family: "Lucida Sans", Geneva, Verdana, sans-serif;
-  color: var(--dark)!important;
+  color: var(--dark) !important;
 }
 
 i {
-  font-size: 1.5rem;
+  font-size: 1rem;
   opacity: 0.9;
 }
 
@@ -120,11 +121,21 @@ img:hover {
 /* #### Ana Navbar (navbar_second) ############################################################################# */
 /* #### Üst Navbar (navbar_first) #### */
 #navbar_first {
-  border-bottom: 1px solid #ddd;
-  background: linear-gradient(to right, #0f0f0f, #1c1c1c);
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 50px; /* Navvar first height */
+  z-index: 1000;
+  padding: 0.8rem 0;
   color: var(--white);
-  padding: 1rem 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid #ddd;
+  background: linear-gradient(to right, #4b3737, #1c1c1c);
+  /* display: none !important ; */
+  display: flex;
+  align-items: center;
+
 }
 
 #navbar_first .container {
@@ -180,10 +191,16 @@ img:hover {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-
 /* #### Ana Navbar (navbar_second) ############################################################################# */
 #navbar_second {
+  position: fixed;
+  top:50px;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Navbar second height */
+  z-index: 999;
   background-color: var(--dark);
+  transition: top 0.3s ease-in-out;
 }
 
 .nav-hover {
@@ -272,7 +289,6 @@ header {
   padding-top: 12rem;
 }
 
-
 /*############################################################################################################## */
 /* #### Main############################################################################# */
 
@@ -283,13 +299,13 @@ header {
 }
 
 #out_icon .message i {
-  font-size: 6rem;
-  margin-bottom: 0.5rem;
+  font-size: 5rem;
+  margin-bottom: 0.8rem;
   opacity: 0.8;
 }
 
-#out_icon p{
-  color: var(--light)!important;
+#out_icon p {
+  color: var(--light) !important;
 }
 
 /* Newspaper */
@@ -329,22 +345,51 @@ header {
   object-fit: cover;
 }
 
+/* #### Mobil Uyumluluk (Card) #### */
+/* 1<=X<=767 */
+@media screen and (min-width:1px){
+  #card_body{
+    width: 100%!important;
+  }
+}
+
+/* 768<=X<=1199 */
+@media screen and (min-width:768px){
+  #card_body{
+    width: 49%!important;
+  }
+}
+
+
+/* 900<=X<=1199 */
+@media screen and (min-width:900px){
+  #card_body{
+    width: 32%!important;
+  }
+}
+
+/* x>=1200 */
+@media screen and (min-width:1200px){
+  #card_body{
+    width: 24%!important;
+  }
+}
+
 /*############################################################################################################## */
 /* #### Footer ############################################################################# */
 
-
 /*############################################################################################################## */
 /* #### Back to Top  ############################################################################# */
-#back_top{
+#back_top {
   position: fixed;
   right: 0;
-  bottom:0;
+  bottom: 0;
   width: 3rem;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
   opacity: 0.9;
 }
 
-#back_top:hover{
+#back_top:hover {
   opacity: 0.6;
 }

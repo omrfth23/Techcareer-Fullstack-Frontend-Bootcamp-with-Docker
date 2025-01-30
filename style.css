@@ -320,3 +320,19 @@ header {
   object-fit: cover;
 }
 /* #### Footer ############################################################################################## */
+
+
+/* #### Back to Top ########################################################################################### */
+#back_top{
+  position: fixed;
+  right: 0;
+  bottom:0;
+  width: 3rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+#back_top:hover{
+  opacity: 0.6;
+}

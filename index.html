@@ -61,188 +61,239 @@
   <body data-bs-spy="scroll" data-bs-target="#navbar">
     <noscript>Bu web sitesi javascript'i desteklenmiyor</noscript>
     <!-- Start Codes -->
+     <!-- 2097 -->
 
-    <!-- nav start -->
-    <nav id="navbar_first">
-      <!-- div.top_bar>div.container>div.row>(div.col-lg-7.col-md-9.col-xs-12>ul.clearfix.links>(li>i)*3)+(div.col-lg-5.col-md-3.col-xs-12>div.first_right>a{Login}+a{Register}) -->
-      <!-- div.top_bar>div.container>div.row>(div.col-lg-7.col-md-9.col-xs-12>ul.clearfix.links>li({Home}>i)+li({Blog}>i)+li({Newspaper}>i)+li({Contanct}>i))+(div.col-lg-5.col-md-3.col-xs-12>div.first_right>(a{Login}+a{Register})) -->
-      <div class="top_bar">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-7 col-md-9 col-xs-12">
-              <div id="first_left">
-              <ul class="clearfix links">
-                
-                <li><a class=" text-primary me-3" href="tel:++90 111 222 33 44"><i class="fa-solid fa-phone-flip"></i><span>+90 111 222 33 44</span></a> </li>
-                <li><a class=" text-primary me-3" href="tel:++90 111 222 33 44"><i class="fa-solid fa-phone-flip"></i><span>whatsapp</span></a> </li>
-                <li><a class=" text-primary me-3" href="tel:++90 111 222 33 44"><i class="fa-solid fa-phone-flip"></i><span>Mail</span></a> </li>
-              </ul>
-            </div>
-            </div>
-            <div class="col-lg-5 col-md-3 col-xs-12">
-              <div id="first_right">
-                <a href="" title="login" class="text-primary"><i class="fa-solid fa-user"></i></a>
-                <a href="" title="register"  class="text-warning"><i class="fa-solid fa-user-secret"></i></a>
-                <a href="" title="admin"  class="text-danger"><i class="fa-solid fa-user-shield"></i></a>
-              </div>
-            </div>
-          </div>
+       <!-- div.top_bar>div.container>div.row>(div.col-lg-7.col-md-9.col-xs-12>ul.clearfix.links>li({Home}>i)+li({Blog}>i)+li({Newspaper}>i)+li({Contanct}>i))+(div.col-lg-5.col-md-3.col-xs-12>div.first_right>(a{Login}+a{Register})) -->
+    
+    <!-- Üst Navbar -->
+    <nav id="navbar_first" class="d-flex align-items-center">
+      <div class="container d-flex justify-content-between">
+        
+        <!-- Sol Taraf (İletişim) -->
+        <div id="first_left" class="d-flex">
+          <ul class="d-flex links">
+            <li>
+              <a class="text-primary me-3 nav-icon" href="tel:+901112223344">
+                <i class="fa-solid fa-phone-flip"></i>
+              </a>
+            </li>
+            <li>
+              <a class="text-success me-3 nav-icon" href="https://wa.me/901112223344?text=Merhaba%20iletişime%20geçmek%20istiyorum" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            </li>
+            <li>
+              <a class="text-danger me-3 nav-icon" href="mailto:info@example.com">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sağ Taraf (Login/Register/Admin) -->
+        <div id="first_right" class="d-flex">
+          <a href="#" title="Login" class="text-primary me-2 nav-icon">
+            <i class="fa-solid fa-user"></i>
+          </a>
+          <a href="#" title="Register" class="text-warning me-2 nav-icon">
+            <i class="fa-solid fa-user-secret"></i>
+          </a>
+          <a href="#" title="Admin" class="text-danger nav-icon">
+            <i class="fa-solid fa-user-shield"></i>
+          </a>
         </div>
       </div>
     </nav>
-    <!-- nav end -->
 
-    <nav id="navbar_second"
-      class="navbar navbar-expand-md navbar-dark bg-dark"
-    >
+
+    <!-- Ana Navbar -->
+    <nav id="navbar_second" class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm" >
       <div class="container">
-        <a class="navbar-brand" href="#">LOGO</a>
-        <button
-          class="navbar-toggler d-lg-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapsibleNavId"
-          aria-controls="collapsibleNavId"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <!-- Logo -->
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+          <i class="fa-solid fa-code me-2"></i> LOGO
+        </a>
+        
+        <!-- Mobil Menü Açma Butonu -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId">
           <span class="navbar-toggler-icon"></span>
         </button>
+        
+        <!-- Navbar Menüsü -->
         <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+          <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="#" aria-current="page"
-                ><i class="fa-solid fa-house-chimney"></i><span>Home</span>
-                <span class="visually-hidden">(current)</span></a
-              >
+              <a class="nav-link active nav-hover" href="#"><i class="fa-solid fa-house"></i> Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa-regular fa-newspaper"></i><span>Newspaper</span></a>
+              <a class="nav-link nav-hover" href="#"><i class="fa-regular fa-newspaper"></i> Newspaper</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa-solid fa-blog"></i><span>Blog</span></a>
+              <a class="nav-link nav-hover" href="#"><i class="fa-solid fa-blog"></i> Blog</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa-solid fa-id-card"></i><span>Contact</span></a>
+              <a class="nav-link nav-hover" href="#"><i class="fa-solid fa-id-card"></i> Contact</a>
             </li>
+            
+            <!-- Dropdown Menü -->
             <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="dropdownId"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                >Dropdown</a
-              >
-              <div
-                class="dropdown-menu"
-                aria-labelledby="dropdownId"
-              >
-                <a class="dropdown-item" href="#"
-                  >Action 1</a
-                >
-                <a class="dropdown-item" href="#"
-                  >Action 2</a
-                >
-              </div>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown">More</a>
+              <ul class="dropdown-menu animate-dropdown">
+                <li><a class="dropdown-item" href="#">Action 1</a></li>
+                <li><a class="dropdown-item" href="#">Action 2</a></li>
+              </ul>
             </li>
           </ul>
-          <form class="d-flex my-2 my-lg-0">
-            <input
-              class="form-control me-sm-2"
-              type="text"
-              placeholder="Search"
-            />
-            <button
-              class="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-            >
-              Search
-            </button>
+          
+          <!-- Arama Kutusu -->
+          <form class="d-flex search-bar">
+            <input class="form-control me-2 search-input" type="search" placeholder="Search">
+            <button class="btn btn-outline-success search-btn" type="submit">Search</button>
           </form>
         </div>
       </div>
     </nav>
-    
+        
     <!-- header start -->
     <header id="header"></header>
     <!-- header end -->
 
     <!-- main start -->
     <main id="main">
+      <!-- section#blog.container.my-4.mb-4>h2.text-center.mb-3.mt-1{Son 6 Blog}+div.row>(div.col-md-4.mb-4>div.card.blog-card>img.card-img-top+div.card-body>h5.card-title.text-center.h1.text-uppercase{başlık-$}+p.card-text.line-clamp8{içerik-$}+a.btn.btn-primary{Daha Fazla})*9 -->
+      <section id="blog" class="container my-4 mb-4">
+        <h2 class="text-center mb-3 mt-1">Son 6 Blog</h2>
+        <div class="row">
+
+          <!-- card-1 -->
+          <div class="col-md-4 mb-4">
+            <div class="card blog-card">
+              <img src="pictures/kart1.webp" alt="" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title text-center h1 text-uppercase">başlık-1</h5>
+                <p class="card-text line-clamp8">içerik-1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dolore culpa alias minima nisi rem quae necessitatibus, sapiente in ipsam magni ab fugit itaque obcaecati enim quasi possimus officiis sint?
+                Veniam hic amet error corrupti vero mollitia necessitatibus voluptass excepturi. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque earum quam, delectus eligendi dolores dolore atque pariatur commodi officia voluptas, quaerat accusamus accusantium debitis assumenda error! Culpa consectetur doloribus esse.</p>
+                <a href="" class="btn btn-primary">Daha Fazla</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- card-2 -->
+          <div class="col-md-4 mb-4">
+            <div class="card blog-card">
+              <img src="pictures/kart2.webp" alt="" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title text-center h1 text-uppercase">başlık-1</h5>
+                <p class="card-text line-clamp8">içerik-2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dolore culpa alias minima nisi rem quae necessitatibus, sapiente in ipsam magni ab fugit itaque obcaecati enim quasi possimus officiis sint?
+                Veniam hic amet error corrupti vero mollitia necessitatibus voluptass excepturi. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque earum quam, delectus eligendi dolores dolore atque pariatur commodi officia voluptas, quaerat accusamus accusantium debitis assumenda error! Culpa consectetur doloribus esse.</p>
+                <a href="" class="btn btn-primary">Daha Fazla</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- card-1 -->
+          <div class="col-md-4 mb-4">
+            <div class="card blog-card">
+              <img src="pictures/kart3.webp" alt="" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title text-center h1 text-uppercase">başlık-1</h5>
+                <p class="card-text line-clamp8">içerik-3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dolore culpa alias minima nisi rem quae necessitatibus, sapiente in ipsam magni ab fugit itaque obcaecati enim quasi possimus officiis sint?
+                Veniam hic amet error corrupti vero mollitia necessitatibus voluptass excepturi. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque earum quam, delectus eligendi dolores dolore atque pariatur commodi officia voluptas, quaerat accusamus accusantium debitis assumenda error! Culpa consectetur doloribus esse.</p>
+                <a href="" class="btn btn-primary">Daha Fazla</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- card-1 -->
+          <div class="col-md-4 mb-4">
+            <div class="card blog-card">
+              <img src="pictures/kart1.webp" alt="" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title text-center h1 text-uppercase">başlık-1</h5>
+                <p class="card-text line-clamp8">içerik-4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dolore culpa alias minima nisi rem quae necessitatibus, sapiente in ipsam magni ab fugit itaque obcaecati enim quasi possimus officiis sint?
+                Veniam hic amet error corrupti vero mollitia necessitatibus voluptass excepturi. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque earum quam, delectus eligendi dolores dolore atque pariatur commodi officia voluptas, quaerat accusamus accusantium debitis assumenda error! Culpa consectetur doloribus esse.</p>
+                <a href="" class="btn btn-primary">Daha Fazla</a>
+              </div>
+            </div>
+          </div>
+
+         <!-- card-5 -->
+         <div class="col-md-4 mb-4">
+          <div class="card blog-card">
+            <img src="pictures/kart4.webp" alt="" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title text-center h1 text-uppercase">başlık-1</h5>
+              <p class="card-text line-clamp8">içerik-5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dolore culpa alias minima nisi rem quae necessitatibus, sapiente in ipsam magni ab fugit itaque obcaecati enim quasi possimus officiis sint?
+              Veniam hic amet error corrupti vero mollitia necessitatibus voluptass excepturi. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque earum quam, delectus eligendi dolores dolore atque pariatur commodi officia voluptas, quaerat accusamus accusantium debitis assumenda error! Culpa consectetur doloribus esse.</p>
+              <a href="" class="btn btn-primary">Daha Fazla</a>
+            </div>
+          </div>
+        </div>
+
+          <!-- card-6 -->
+          <div class="col-md-4 mb-4">
+            <div class="card blog-card">
+              <img src="pictures/kart3.webp" alt="" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title text-center h1 text-uppercase">başlık-1</h5>
+                <p class="card-text line-clamp8">içerik-6 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dolore culpa alias minima nisi rem quae necessitatibus, sapiente in ipsam magni ab fugit itaque obcaecati enim quasi possimus officiis sint?
+                Veniam hic amet error corrupti vero mollitia necessitatibus voluptass excepturi. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque earum quam, delectus eligendi dolores dolore atque pariatur commodi officia voluptas, quaerat accusamus accusantium debitis assumenda error! Culpa consectetur doloribus esse.</p>
+                <a href="" class="btn btn-primary">Daha Fazla</a>
+              </div>
+            </div>
+          </div>
+
+         <!-- card-7 -->
+         <div class="col-md-4 mb-4">
+          <div class="card blog-card">
+            <img src="pictures/kart1.webp" alt="" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title text-center h1 text-uppercase">başlık-1</h5>
+              <p class="card-text line-clamp8">içerik-7 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dolore culpa alias minima nisi rem quae necessitatibus, sapiente in ipsam magni ab fugit itaque obcaecati enim quasi possimus officiis sint?
+              Veniam hic amet error corrupti vero mollitia necessitatibus voluptass excepturi. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque earum quam, delectus eligendi dolores dolore atque pariatur commodi officia voluptas, quaerat accusamus accusantium debitis assumenda error! Culpa consectetur doloribus esse.</p>
+              <a href="" class="btn btn-primary">Daha Fazla</a>
+            </div>
+          </div>
+        </div>
+
+          <!-- card-8 -->
+          <div class="col-md-4 mb-4">
+            <div class="card blog-card">
+              <img src="pictures/kart4.webp" alt="" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title text-center h1 text-uppercase">başlık-1</h5>
+                <p class="card-text line-clamp8">içerik-8 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dolore culpa alias minima nisi rem quae necessitatibus, sapiente in ipsam magni ab fugit itaque obcaecati enim quasi possimus officiis sint?
+                Veniam hic amet error corrupti vero mollitia necessitatibus voluptass excepturi. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque earum quam, delectus eligendi dolores dolore atque pariatur commodi officia voluptas, quaerat accusamus accusantium debitis assumenda error! Culpa consectetur doloribus esse.</p>
+                <a href="" class="btn btn-primary">Daha Fazla</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- card-9 -->
+          <div class="col-md-4 mb-4">
+            <div class="card blog-card">
+              <img src="pictures/kart3.webp" alt="" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title text-center h1 text-uppercase">başlık-1</h5>
+                <p class="card-text line-clamp8">içerik-9 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dolore culpa alias minima nisi rem quae necessitatibus, sapiente in ipsam magni ab fugit itaque obcaecati enim quasi possimus officiis sint?
+                Veniam hic amet error corrupti vero mollitia necessitatibus voluptass excepturi. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque earum quam, delectus eligendi dolores dolore atque pariatur commodi officia voluptas, quaerat accusamus accusantium debitis assumenda error! Culpa consectetur doloribus esse.</p>
+                <a href="" class="btn btn-primary">Daha Fazla</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <section>
         <p class="line-clamp20">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis at
           enim consequuntur dolore harum quo odit similique est, voluptates
           illum delectus, neque ipsam porro minus suscipit velit sequi
           repellendus eligendi? Libero expedita rem cumque iste accusamus
-          doloribus ullam vitae cum aperiam non explicabo minima architecto,
-          tenetur, nulla dolore amet alias vero fugiat quas animi eos, saepe
-          numquam magni? Possimus, rem! Voluptate iusto dignissimos aliquam ea
-          ducimus sed maiores quae placeat laborum ex veniam tempora, labore
-          modi praesentium suscipit, beatae nulla ipsa nisi voluptates ullam at
-          ad. Commodi omnis totam voluptatibus. Eos, doloribus assumenda
-          molestias alias facilis sed rem voluptatem placeat temporibus
-          provident saepe hic quisquam voluptatum libero! Quibusdam, tempore
-          rerum saepe maxime, distinctio accusantium nostrum debitis rem maiores
-          sequi soluta. Maiores similique saepe quasi. Veniam velit, temporibus
-          aliquam praesentium architecto, corrupti, vitae facere corporis
-          pariatur veritatis ipsa omnis harum quidem aperiam hic voluptatem illo
-          nobis possimus quo eaque odio. Amet! Autem illum iste iure sapiente
-          quas eaque, similique impedit hic nesciunt nulla necessitatibus at
-          error nemo in dolorem obcaecati magni voluptate libero possimus
-          ducimus non perferendis dolores. Velit, dignissimos sunt! Repellendus
-          ipsam velit quasi iste nam eum laboriosam deleniti aperiam ipsa
-          quibusdam? Voluptatum ullam officiis nemo minus necessitatibus porro
-          voluptates tempore illo cumque? Minus facere fugiat dicta deserunt
-          voluptatum saepe. Cupiditate esse, culpa nesciunt dolores voluptas id
-          tenetur exercitationem debitis magnam architecto consequatur fugit
-          cumque fuga accusantium, dignissimos eius! Nisi voluptate inventore
-          nobis veritatis dolor aliquam nemo magnam quisquam! Nobis? Veniam
-          voluptatibus amet voluptas fugit consectetur laudantium deleniti nobis
-          iusto ut itaque. Laboriosam, tempore rem inventore quaerat labore
-          molestiae magni, neque delectus est laborum, perspiciatis eos sunt.
-          Reprehenderit, facere nobis! Autem nobis obcaecati impedit ducimus
-          consectetur, illum inventore adipisci doloribus a quaerat, odit quo.
-          Architecto, itaque voluptatibus cumque dolore ipsum incidunt
-          consequuntur atque tenetur quas ipsam iste minus impedit sed! Qui
-          minima numquam ducimus totam asperiores dicta, atque iusto iste quos,
-          porro laboriosam? Obcaecati laudantium est sed tempora, illo
-          blanditiis veniam distinctio doloribus officiis quidem, veritatis ea
-          magnam repudiandae debitis. Nobis autem, repellat veniam in sunt
-          assumenda! Dolor eligendi enim repellendus hic sed velit officiis
-          recusandae ex aliquam? Unde voluptate esse harum aspernatur animi
-          mollitia recusandae sunt in minus commodi! Eaque non consectetur quo
-          harum ipsa alias illum, aut veniam quidem facere assumenda molestias,
-          earum tempore tenetur minus doloribus magni ut atque sapiente. Eum
-          quaerat vitae ducimus culpa voluptas minima? Suscipit illo neque ipsa
-          autem quidem sapiente quo odit praesentium consectetur. Asperiores
-          officiis error sit obcaecati impedit, vitae reprehenderit eveniet vel
-          quia quis veritatis at rerum. Eveniet tenetur adipisci delectus.
-          Aspernatur quibusdam, corrupti sed nam, dolore facere mollitia,
-          tempora voluptates ratione quos voluptate tempore ipsa veritatis vitae
-          magnam assumenda. Impedit eos sequi repellendus pariatur, fugit vitae
-          enim obcaecati nemo nihil. Ipsa a culpa voluptas ab optio vel,
-          repudiandae, earum omnis exercitationem amet animi, nemo quae nesciunt
-          quisquam harum ratione labore. Voluptas, id tenetur sed iure
-          consequuntur illum quas laborum exercitationem? Laudantium eveniet
-          excepturi odit consequatur alias nemo pariatur voluptate veniam quae.
-          Saepe, dolore nobis facilis libero quisquam sapiente sequi accusamus,
-          dolor ad asperiores officia id eos et dicta dolorum quidem? Nostrum
-          illum error nobis quaerat dignissimos sed sapiente fuga, id iure,
-          velit quibusdam necessitatibus recusandae deserunt officia dolorem
-          harum, rem aliquam vel enim numquam. Nisi molestiae pariatur corrupti
-          totam aliquid? Accusantium ut saepe animi, ratione unde nesciunt
-          expedita temporibus architecto suscipit impedit voluptas illum
-          dignissimos minima quisquam quibusdam reprehenderit. Ex recusandae
-          molestiae nihil earum, sit saepe suscipit at hic accusamus. Libero,
-          consectetur. Neque optio placeat provident, deleniti nihil, amet
-          dolorem vitae quod tempore possimus ea aspernatur rem repellendus
-          laboriosam quam hic in omnis dignissimos voluptates exercitationem
-          inventore explicabo architecto asperiores.
         </p>
       </section>
+
     </main>
     <!-- main end -->
 

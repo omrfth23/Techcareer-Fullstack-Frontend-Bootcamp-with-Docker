@@ -1,5 +1,5 @@
 // http://localhost:1111/daily/list
-console.info("index.js Server 1111 portunda ayağa kalktı");
+console.info("server.js Server 1111 portunda ayağa kalktı");
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Import
@@ -186,7 +186,7 @@ const swaggerOptions = {
     // Bearer authentication istemiyorsak securtiy kapat
     },
   },
-  apis: ["index.js", "../routes/blog_api_routes.js"], // API tanımları için dosyaları belirtin
+  apis: ["blog.js", "../routes/blog_api_routes.js"], // API tanımları için dosyaları belirtin
   //apis: ["index.js", "./routes/*.js"], // API tanımları için dosyaları belirtin
 };
 
@@ -396,7 +396,8 @@ app.get("/", csrfProtection, (request, response) => {
     "Content-Type, Authorization"
   );
 
-  response.render("index", { csrfToken: request.csrfToken() });
+  // dist/server.js
+  response.render("blog", { csrfToken: request.csrfToken() });
 });
 
 // Form verilerini işleyen rota

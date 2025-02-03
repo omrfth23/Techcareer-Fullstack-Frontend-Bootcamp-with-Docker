@@ -18,7 +18,7 @@ body{
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.2rem;
     line-height: 1.2;
-    background-color: #f2f2f2;
+    background-color: #d51a1a;
     color: var(--body-color);
     background-color: var(--body-bgcolor);
     display: flex;

@@ -1,6 +1,6 @@
 "use strict";
 // http://localhost:1111/daily/list
-console.info("index.js Server 1111 portunda ayağa kalktı");
+console.info("server.js Server 1111 portunda ayağa kalktı");
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Import
 // Import Express (Express:  Node.js için esnek bir web uygulama çatısını inşa eder)
@@ -159,7 +159,7 @@ const swaggerOptions = {
             // Bearer authentication istemiyorsak securtiy kapat
         },
     },
-    apis: ["index.js", "../routes/blog_api_routes.js"], // API tanımları için dosyaları belirtin
+    apis: ["blog.js", "../routes/blog_api_routes.js"], // API tanımları için dosyaları belirtin
     //apis: ["index.js", "./routes/*.js"], // API tanımları için dosyaları belirtin
 };
 /*
@@ -330,7 +330,8 @@ app.get("/", csrfProtection, (request, response) => {
     // Access-Control-Allow-Headers
     // Bu başlıklar, taryıcınının sunucuya göndereceği özel başlıklar göndersin
     response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    response.render("index", { csrfToken: request.csrfToken() });
+    // dist/server.js
+    response.render("blog", { csrfToken: request.csrfToken() });
 });
 // Form verilerini işleyen rota
 // DİKKATT: Eğer  blog_api_routes.js post kısmında event.preventDefault(); kapatırsam buraki kodlar çalışır.

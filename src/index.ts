@@ -68,7 +68,7 @@ if (process.env.NODE_ENV !== "production") {
 // Localhostta MongoDB yüklüyse)
 // Bu proje için docker-compose üzerinden 27017 porta sahip mongodb kurdum
 // 1.YOL (LOCALHOST)
-const databaseLocalDockerUrl = "mongodb://localhost:27017/blog";
+const databaseLocalDockerUrl = "mongodb://localhost:27017/blogDB";
 
 // MongoDB Cloud (username,password)
 // 2.YOL
@@ -96,7 +96,8 @@ const dataUrl = [
 //mongoose.connect(`${databaseCloudUrl}`, {useNewUrlParser:true, useUnifiedTopology:true}) // Eski MongoDB sürümleride
 
 mongoose
-  .connect(`${databaseCloudUrl}`)
+//   .connect(`${databaseCloudUrl}`)
+  .connect(`${databaseLocalDockerUrl}`)
   .then(() => {
     console.log("Mongo DB Başarıyla Yüklendi");
   })

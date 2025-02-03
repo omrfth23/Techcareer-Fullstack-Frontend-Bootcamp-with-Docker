@@ -66,7 +66,7 @@ $("#blog-form-id").on("submit", function (event) {
   // csrf göster
   console.warn("Sonuç: " + blogDataCreate._csrf);
 
-  // Alınan form versiini kaydetmek(AJAX)
+  // Alınan form versini kaydetmek(AJAX)
   $.ajax({
     url: "/blog",
     method: "POST",

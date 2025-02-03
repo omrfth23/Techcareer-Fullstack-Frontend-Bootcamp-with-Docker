@@ -296,4 +296,17 @@ router.delete("/:id", async (request, response)=>{
     }
 })
 
+/////////////////////////////////////////////////////////////////////////////////////////////
+// EXPORT
 module.exports= router;
+
+/////////////////////////////////////////////////////////////
+// POSTMAN, cURL api test araçlarından bir tanesini kullanabilirsiniz.
+/*
+{
+    "header": "başlık",
+    "content": "başlık",
+    "author": "Hamit Mızrak",
+    "tags": "node",
+}
+    */

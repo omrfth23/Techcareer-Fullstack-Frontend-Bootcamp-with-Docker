@@ -6,6 +6,7 @@
 [Google Font](https://fonts.google.com/selection/embed)
 [Bootstrap](https://getbootstrap.com/)
 [Box Shadow Online](https://cssgenerator.pl/en/box-shadow-generator/)
+[jQuery](https://jquery.com//)
 ---
 
 # Typescript başlat

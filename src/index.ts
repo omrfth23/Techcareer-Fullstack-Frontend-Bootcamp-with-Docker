@@ -6,13 +6,13 @@ console.info("index.js Server 1111 portunda ayağa kalktı");
 // Import Express (Express:  Node.js için esnek bir web uygulama çatısını inşa eder)
 // Bu modüllerle beraber HTTP istekleri(request) işleyecek ve istemciye(server) yanıt dönecektir.
 
-// DİKKAT: index.js  require("express") kullanılır
+// DİKKAT: index.js  require("express") kullanılır 
 // DİKKAT: index.ts  import("express") kullanılır.
 
 // Express Import
 const express = require("express");
 
-// Mongoose Import(for Database)
+// Mongoose Import
 const mongoose = require("mongoose");
 
 // CSRF Import
@@ -96,7 +96,6 @@ const dataUrl = [
 //mongoose.connect(`${databaseCloudUrl}`, {useNewUrlParser:true, useUnifiedTopology:true}) // Eski MongoDB sürümleride
 
 mongoose
-//   .connect(`${databaseCloudUrl}`)
   .connect(`${databaseLocalDockerUrl}`)
   .then(() => {
     console.log("Mongo DB Başarıyla Yüklendi");
@@ -105,7 +104,8 @@ mongoose
     console.error("Mongo DB Bağlantı Hatası", err);
   });
 
-// 3.YOL (Docker Üzerinden Mongo DB açılmamıştır)
+
+// 3.YOL (Docker Üzerindenn Mongo DB açılmamıştır)
 /*
 mongoose
   .connect(`${databaseLocalDockerUrl}`)
@@ -118,7 +118,6 @@ mongoose
     console.error("Mongo DB Bağlantı Hatası", err);
   });
 */
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // SWAGGER
 // http://localhost:1111/api-docs
@@ -164,7 +163,7 @@ const swaggerOptions = {
         servers: ["http://localhost:1111"]
       }
     },
-    apis: ["index.js", "./routes/blog_api_routes.js"], // API tanımları için dosyaları belirtin
+    apis: ["index.js", "../routes/blog_api_routes.js"], // API tanımları için dosyaları belirtin
     //apis: ["index.js", "./routes/*.js"], // API tanımları için dosyaları belirtin
   };
 */
@@ -175,37 +174,37 @@ const swaggerOptions = {
       title: "Blog API",
       description:
         "Blog API yönetimi için dökümantasyon Author: Yüksek Bilgisayar Mühendisi Hamit Mızrak",
-      version: "1.0.0",
+        version: "1.0.0",
       contact: {
         name: "Developer",
       },
       servers: [
         {
-          url: "http://localhost:1111",
+            url:"http://localhost:1111",
         },
-      ],
-      // Bearer authentication istemiyorsak securtiy kapat
+    ],
+    // Bearer authentication istemiyorsak securtiy kapat
     },
   },
-  apis: ["index.js", "./routes/blog_api_routes.js"], // API tanımları için dosyaları belirtin
+  apis: ["index.js", "../routes/blog_api_routes.js"], // API tanımları için dosyaları belirtin
   //apis: ["index.js", "./routes/*.js"], // API tanımları için dosyaları belirtin
 };
 
 /*
-  Dikkat: No operations defined in spec! Swagger dokümasntasyonları API rotalarını işlemleri doğru yazdık
-  API dosyamızın blog_api.routes.js , Swagger taglarini (JSDoc) olmadığı için
-  
-  LIST
-  /**
-   * @swagger
-   * /blog:
-   *   get:
-   *     summary: Get all blogs
-   *     description: Retrieves a list of all blogs
-   *     responses:
-   *       200:
-   *         description: Successfully retrieved list of blogs
-   */
+Dikkat: No operations defined in spec! Swagger dokümasntasyonları API rotalarını işlemleri doğru yazdık
+API dosyamızın blog_api.routes.js , Swagger taglarini (JSDoc) olmadığı için
+
+LIST
+/**
+ * @swagger
+ * /blog:
+ *   get:
+ *     summary: Get all blogs
+ *     description: Retrieves a list of all blogs
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved list of blogs
+ */
 
 // POST
 /*
@@ -233,6 +232,7 @@ const swaggerOptions = {
  *       201:
  *         description: Successfully created new blog
  */
+
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 // http://localhost:1111/api-docs
@@ -297,8 +297,8 @@ app.use(morgan("combined")); //dev: uzun ve renkli loglar göster
 const blogRoutes = require("../routes/blog_api_routes");
 const { request } = require("http");
 
-// http://localhost:1111/admin/blog
-app.use("/admin/blog", blogRoutes);
+// http://localhost:1111/blog
+app.use("/blog", blogRoutes);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // compression:
@@ -323,7 +323,7 @@ const limiter = rateLimit({
   message: "İstek sayısı fazla yapıldı, lütfen biraz sonra tekrar deneyiniz",
 });
 
-app.use("/admin/blog/", limiter);
+app.use("/blog/", limiter);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // CORS
@@ -335,6 +335,7 @@ const cors = require("cors");
 app.use(cors());
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // Helmet: Http başlıkalrını güvenli hale getirir ve yaygın saldırı vektörlerini azaltır
 //npm install helmet
 
@@ -353,6 +354,7 @@ işlem yapması halidir.
 Kullanımı: Genellikle kullanıcı, başka bir sitede oturum açmışken, saldırganın tasarladğo kötü niyetli sitelerle veya bağlantılarla
 istem dışı işlemler yapmasına saldırgan yönlendirir.
 Kullanıcı browser üzerinden oturum açtığında ve kimlik doğrulama bilgilerie sahip olduğu sitelerde yapılır.
+
 */
 // npm install csurf
 // npm install cookie-parser
@@ -397,7 +399,6 @@ app.get("/", csrfProtection, (request, response) => {
   response.render("index", { csrfToken: request.csrfToken() });
 });
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Form verilerini işleyen rota
 
 // DİKKATT: Eğer  blog_api_routes.js post kısmında event.preventDefault(); kapatırsam buraki kodlar çalışır.
@@ -452,18 +453,18 @@ app.use((request, response, next) => {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Windowsta 1111 portunu kapatmak
 /*
-  Terminali Yönetici olarak Aç
-  
-  # Çalışan portu gösteriyor
-  netstat -aon | findstr :1111
-  
-  # TCP Protokolü için Portu Kapatma:
-  netsh advfirewall firewall add rule name="Block TCP Port 1111" protocol=TCP dir=in localport=1111 action=block
-  
-  # UDP Protokolü için Portu Kapatma:
-  netsh advfirewall firewall add rule name="Block UDP Port 1111" protocol=UDP dir=in localport=1111 action=block
-  
-  */
+Terminali Yönetici olarak Aç
+
+# Çalışan portu gösteriyor
+netstat -aon | findstr :1111
+
+# TCP Protokolü için Portu Kapatma:
+netsh advfirewall firewall add rule name="Block TCP Port 1111" protocol=TCP dir=in localport=1111 action=block
+
+# UDP Protokolü için Portu Kapatma:
+netsh advfirewall firewall add rule name="Block UDP Port 1111" protocol=UDP dir=in localport=1111 action=block
+
+*/
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Sunucu başlatma

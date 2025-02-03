@@ -5,11 +5,11 @@ console.info("index.js Server 1111 portunda ayağa kalktı");
 // Import
 // Import Express (Express:  Node.js için esnek bir web uygulama çatısını inşa eder)
 // Bu modüllerle beraber HTTP istekleri(request) işleyecek ve istemciye(server) yanıt dönecektir.
-// DİKKAT: index.js  require("express") kullanılır
+// DİKKAT: index.js  require("express") kullanılır 
 // DİKKAT: index.ts  import("express") kullanılır.
 // Express Import
 const express = require("express");
-// Mongoose Import(for Database)
+// Mongoose Import
 const mongoose = require("mongoose");
 // CSRF Import
 const csrf = require("csurf");
@@ -52,7 +52,7 @@ if (process.env.NODE_ENV !== "production") {
 // Localhostta MongoDB yüklüyse)
 // Bu proje için docker-compose üzerinden 27017 porta sahip mongodb kurdum
 // 1.YOL (LOCALHOST)
-const databaseLocalDockerUrl = "mongodb://localhost:27017/blog";
+const databaseLocalDockerUrl = "mongodb://localhost:27017/blogDB";
 // MongoDB Cloud (username,password)
 // 2.YOL
 const databaseCloudUrl = "mongodb+srv://hamitmizrak:<password>@offlinenodejscluster.l3itd.mongodb.net/?retryWrites=true&w=majority&appName=OfflineNodejsCluster";
@@ -73,14 +73,14 @@ const dataUrl = [
 // 2.YOL
 //mongoose.connect(`${databaseCloudUrl}`, {useNewUrlParser:true, useUnifiedTopology:true}) // Eski MongoDB sürümleride
 mongoose
-    .connect(`${databaseCloudUrl}`)
+    .connect(`${databaseLocalDockerUrl}`)
     .then(() => {
     console.log("Mongo DB Başarıyla Yüklendi");
 })
     .catch((err) => {
     console.error("Mongo DB Bağlantı Hatası", err);
 });
-// 3.YOL (Docker Üzerinden Mongo DB açılmamıştır)
+// 3.YOL (Docker Üzerindenn Mongo DB açılmamıştır)
 /*
 mongoose
   .connect(`${databaseLocalDockerUrl}`)
@@ -137,7 +137,7 @@ const swaggerOptions = {
         servers: ["http://localhost:1111"]
       }
     },
-    apis: ["index.js", "./routes/blog_api_routes.js"], // API tanımları için dosyaları belirtin
+    apis: ["index.js", "../routes/blog_api_routes.js"], // API tanımları için dosyaları belirtin
     //apis: ["index.js", "./routes/*.js"], // API tanımları için dosyaları belirtin
   };
 */
@@ -159,24 +159,24 @@ const swaggerOptions = {
             // Bearer authentication istemiyorsak securtiy kapat
         },
     },
-    apis: ["index.js", "./routes/blog_api_routes.js"], // API tanımları için dosyaları belirtin
+    apis: ["index.js", "../routes/blog_api_routes.js"], // API tanımları için dosyaları belirtin
     //apis: ["index.js", "./routes/*.js"], // API tanımları için dosyaları belirtin
 };
 /*
-  Dikkat: No operations defined in spec! Swagger dokümasntasyonları API rotalarını işlemleri doğru yazdık
-  API dosyamızın blog_api.routes.js , Swagger taglarini (JSDoc) olmadığı için
-  
-  LIST
-  /**
-   * @swagger
-   * /blog:
-   *   get:
-   *     summary: Get all blogs
-   *     description: Retrieves a list of all blogs
-   *     responses:
-   *       200:
-   *         description: Successfully retrieved list of blogs
-   */
+Dikkat: No operations defined in spec! Swagger dokümasntasyonları API rotalarını işlemleri doğru yazdık
+API dosyamızın blog_api.routes.js , Swagger taglarini (JSDoc) olmadığı için
+
+LIST
+/**
+ * @swagger
+ * /blog:
+ *   get:
+ *     summary: Get all blogs
+ *     description: Retrieves a list of all blogs
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved list of blogs
+ */
 // POST
 /*
  * @swagger
@@ -255,8 +255,8 @@ app.use(morgan("combined")); //dev: uzun ve renkli loglar göster
 // Router (Rotalar)
 const blogRoutes = require("../routes/blog_api_routes");
 const { request } = require("http");
-// http://localhost:1111/admin/blog
-app.use("/admin/blog", blogRoutes);
+// http://localhost:1111/blog
+app.use("/blog", blogRoutes);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // compression:
 // npm install compression
@@ -277,7 +277,7 @@ const limiter = rateLimit({
     max: 100, // buy süre zarfında en fazla bu kadar isterk atabilirsiniz.
     message: "İstek sayısı fazla yapıldı, lütfen biraz sonra tekrar deneyiniz",
 });
-app.use("/admin/blog/", limiter);
+app.use("/blog/", limiter);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // CORS
 // npm install cors
@@ -302,6 +302,7 @@ işlem yapması halidir.
 Kullanımı: Genellikle kullanıcı, başka bir sitede oturum açmışken, saldırganın tasarladğo kötü niyetli sitelerle veya bağlantılarla
 istem dışı işlemler yapmasına saldırgan yönlendirir.
 Kullanıcı browser üzerinden oturum açtığında ve kimlik doğrulama bilgilerie sahip olduğu sitelerde yapılır.
+
 */
 // npm install csurf
 // npm install cookie-parser
@@ -331,7 +332,6 @@ app.get("/", csrfProtection, (request, response) => {
     response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     response.render("index", { csrfToken: request.csrfToken() });
 });
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Form verilerini işleyen rota
 // DİKKATT: Eğer  blog_api_routes.js post kısmında event.preventDefault(); kapatırsam buraki kodlar çalışır.
 // blog için CSRF koruması eklenmiş POST işlemi
@@ -379,18 +379,18 @@ app.use((request, response, next) => {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Windowsta 1111 portunu kapatmak
 /*
-  Terminali Yönetici olarak Aç
-  
-  # Çalışan portu gösteriyor
-  netstat -aon | findstr :1111
-  
-  # TCP Protokolü için Portu Kapatma:
-  netsh advfirewall firewall add rule name="Block TCP Port 1111" protocol=TCP dir=in localport=1111 action=block
-  
-  # UDP Protokolü için Portu Kapatma:
-  netsh advfirewall firewall add rule name="Block UDP Port 1111" protocol=UDP dir=in localport=1111 action=block
-  
-  */
+Terminali Yönetici olarak Aç
+
+# Çalışan portu gösteriyor
+netstat -aon | findstr :1111
+
+# TCP Protokolü için Portu Kapatma:
+netsh advfirewall firewall add rule name="Block TCP Port 1111" protocol=TCP dir=in localport=1111 action=block
+
+# UDP Protokolü için Portu Kapatma:
+netsh advfirewall firewall add rule name="Block UDP Port 1111" protocol=UDP dir=in localport=1111 action=block
+
+*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Sunucu başlatma
 const port = 1111;

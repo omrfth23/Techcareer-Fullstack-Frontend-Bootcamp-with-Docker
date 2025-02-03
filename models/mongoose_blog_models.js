@@ -3,17 +3,16 @@
 // mongoose paketini sisteme dahil ediyoruz.
 // Mongoose MongoDB ile bağlantı kurarken sağlıklı ve hızlı bağlantısı için  bir ODM(Object Data Modeling)
 // NOT: Eğer bu sayfada Typescript kullansaydım reqire yerine import kullanacaktım.
-
-// Import (Mongo)
+// Import
 const mongoose = require("mongoose");
 
-// Schema (BlogPostSchema)
+// Schema adından (BlogPostSchema)
 const BlogPostSchema = new mongoose.Schema(
   {
     // 1.YOL (HEADER)
-    // header: String
+    //header: String,
 
-    // 2.YOL (HEADER)
+    // 2.YOL
     header: {
       type: String,
       required: [true, " Blog Başlığı için gereklidir"],
@@ -28,7 +27,7 @@ const BlogPostSchema = new mongoose.Schema(
       type: String,
       required: [true, " Blog içeriği için gereklidir"],
       trim: true,
-      minleght: [5, "Blog içeriği için minumum 5 karakter olmalıdır."],
+      minleght: [5, "Blog başlığı için minumum 5 karakter olmalıdır."],
     },
 
     // AUTHOR
@@ -58,6 +57,7 @@ const BlogPostSchema = new mongoose.Schema(
       default: 0,
       min: [0, "Blog gösterimi için Negatif değer verilmez"],
     },
+
     // STATUS
     // Durum (Proje için bu bir taslak mı yoksa canlı ortam için mi ?)
     // Enum Durum Alanı: status: Blog gönderisinin durumu "draft" veya "published" olarak belirlenir. Bu, bir gönderinin taslak mı yoksa yayınlanmış mı olduğunu gösterir.
@@ -72,7 +72,7 @@ const BlogPostSchema = new mongoose.Schema(
     // Zaman Bilgileri: timestamps: createdAt ve updatedAt alanları otomatik olarak eklenir ve her işlemde güncellenir.
     timestamps: true,
   }
-); //end BlogPostSchema
+); //end PostSchema
 
 ////////////////////////////////////////////////////////////////////
 // Sanal alan (Virtuals) - İçerik özetini döndürme

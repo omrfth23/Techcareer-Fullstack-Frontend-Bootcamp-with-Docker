@@ -156,7 +156,6 @@ $("#blog-table-id tbody").on("click", ".edit-btn", function (event) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // BLOG DELETE
 $("#blog-table-id tbody").on("click", ".delete-btn", function () {
-
   // satır ve ilgili id
   const id = $(this).closest("tr").data("id");
 
@@ -165,21 +164,21 @@ $("#blog-table-id tbody").on("click", ".delete-btn", function () {
 
   // Eğer onay EVET
   if (confirmation) {
-        // Alınan form versiini kaydetmek(AJAX)
-        $.ajax({
-          url: `/blog/${id}`,
-          method: "DELETE",
-          success: function () {
-            // Ekleme istemişten sonra List aktifleştir
-            blogList();
+    // Alınan form versiini kaydetmek(AJAX)
+    $.ajax({
+      url: `/blog/${id}`,
+      method: "DELETE",
+      success: function () {
+        // Ekleme istemişten sonra List aktifleştir
+        blogList();
 
-            // Formu temizlemek
-            $("#blog-form-id")[0].reset();
-          }, //end success
-          error: function (xhr, status, error) {
-            console.error("Blog silme sırasında hata var, ", error); // Hata mesajını göster
-          }, //end error
-        }); //end ajax
+        // Formu temizlemek
+        $("#blog-form-id")[0].reset();
+      }, //end success
+      error: function (xhr, status, error) {
+        console.error("Blog silme sırasında hata var, ", error); // Hata mesajını göster
+      }, //end error
+    }); //end ajax
   } else {
     console.error(`${id} nolu blog silinmedi`);
     alert(`${id} nolu blog silinmedi`);

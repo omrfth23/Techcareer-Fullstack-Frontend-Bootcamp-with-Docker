@@ -405,7 +405,7 @@ app.get("/", csrfProtection, (request, response) => {
 // DİKKATT: Eğer  blog_api_routes.js post kısmında event.preventDefault(); kapatırsam buraki kodlar çalışır.
 // blog için CSRF koruması eklenmiş POST işlemi
 // app.post("/blog", csrfProtection, (request, response) => {
-app.post("/", csrfProtection, (request, response) => {
+app.post("/", csrfProtection, (request:any, response:any) => {
   const blogData = {
     header: request.body.header,
     content: request.body.content,

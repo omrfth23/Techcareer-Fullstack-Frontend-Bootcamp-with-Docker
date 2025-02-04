@@ -5,11 +5,35 @@ echo "Docker Mongo Kurulumlar"
 # User Variable
 DOCKER_MONGO="Docker Mongo"
 
+
+###################################################
+# Color
+# red=$(tput setaf 1)
+# green=$(tput setaf 2)
+# yellow=$(tput setaf 3)
+# blue=$(tput setaf 4)
+# magenta=$(tput setaf 5)
+# cyan=$(tput setaf 6)
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[0;33m'
+NC='\033[0m' # No Color
+
+####################################################################################################
+#####################################################################################################
+# Bashscriptlere İzin Vermemiz
+chmod +x bashscript_countdown.sh
+ls -al
+
+#####################################################################################################
+
+
 # Docker Information
 docker --version
 docker ps
 docker search mongo #(OFFICAL)
-./bashscript_bashscript_countdown.sh
+./bashscript_countdown.sh
 
 # Docker üzerinden mongodb
 #####################################################################################################
@@ -21,7 +45,7 @@ docker_mongo() {
     echo -e "\n###### ${DOCKER_MONGO} ######  "
 
     # Geriye Say
-    ./bashscript_bashscript_countdown.sh
+    ./bashscript_countdown.sh
 
 
     # Güncelleme Tercihi
@@ -40,9 +64,9 @@ docker_mongo() {
             # docker container run --detach --name mongodb-container --publish 27000:27017 mongo
             # docker container run --detach --name mongodb-container --publish 27000:27017 mongo:latest
              docker container run --detach --name mongodb-container --publish 27000:27017 mongo:8.0.4
-             ./bashscript_bashscript_countdown.sh
+             ./bashscript_countdown.sh
         else
-            echo -e "MongoDB ekleme yapılmadı"
+            echo -e "${RED}MongoDB ekleme yapılmadı${NC}"
         fi
         ;;
     2)
@@ -84,6 +108,7 @@ docker_mongo() {
      # Docker komutları
     docker ps    # Sadece çalışan containerlerı gösterir
     docker ps -a # Kapatılmış containerıda gösterir
+}
 docker_mongo
 
 
@@ -93,12 +118,12 @@ docker_mongo
 docker_mongo_terminal() {
     sleep 2
     echo -e "\n###### ${LOGOUT} ######  "
-    read -p "Sistemi Kapatıp Tekrar Açmak ister misiniz ? e/h " logoutResult
+    read -p "Docker üzeründen Mongodb terminale Bağlanmak İster misiniz ? e/h " logoutResult
     if [[ $logoutResult == "e" || $logoutResult == "E" ]]; then
         echo -e "Docker mongo_terminal açılıyor ... "
 
         # Geriye Say
-        ./bashscript_bashscript_countdown.sh
+        ./bashscript_countdown.sh
 
         # Docker komutları
         docker ps    # Sadece çalışan containerlerı gösterir
@@ -114,16 +139,17 @@ docker_mongo_terminal() {
         # Mongo Terminalinde
         show dbs; # Mongo Mevcut databaseleri göster
         use blogDB; # Mongo'da blogDB olan database seç
-        db.createCollection("posts");  # Mongo'da byeni Collections oluşturmak
-        db.posts.insertOne({
-            header: "İlk Blog Yazım",
-            content: "Bu benim ilk blog yazımın içeriğidir.",
-            author: "Hamit Mızrak.",
-            tags: "java,jsp",
-        })
-        db.posts.find().pretty(); # Blog yazısını getir
+        show dbs; # Mongo Mevcut databaseleri göster
+        # db.createCollection("posts");  # Mongo'da byeni Collections oluşturmak
+#        db.posts.insertOne({
+#            header: "İlk Blog Yazım",
+#            content: "Bu benim ilk blog yazımın içeriğidir.",
+#            author: "Hamit Mızrak.",
+#            tags: "java,jsp",
+#        })
+        # db.posts.find().pretty(); # Blog yazısını getir
     else
-        echo -e "ocker_mongo_terminal Seçilmedi..."
+        echo -e "Docker_mongo_terminal Seçilmedi..."
     fi
 }
 docker_mongo_terminal

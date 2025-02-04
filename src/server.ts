@@ -72,7 +72,7 @@ if (process.env.NODE_ENV !== "production") {
 const databaseLocalUrl = "mongodb://localhost:27017/blogDB";
 
 // 2.YOL (LOCALHOST)
-const databaseDockerUrl = "mongodb://localhost:27017/blogDB";
+const databaseDockerUrl = "mongodb://localhost:27000/blogDB";
 
 // MongoDB Cloud (username,password)
 // 3.YOL (CLOUD)

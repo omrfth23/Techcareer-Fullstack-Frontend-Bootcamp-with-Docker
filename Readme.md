@@ -6,6 +6,7 @@
 [Bootstrap](https://getbootstrap.com/)
 [Box Shadow Online](https://cssgenerator.pl/en/box-shadow-generator/)
 [jQuery](https://jquery.com//)
+[Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install//)
 ---
 
 ## Script run (Typescript başlat)

@@ -1,25 +1,20 @@
 # Techcareer Frontend Full Stack- Dockerize
-
 [GitHub Address](https://github.com/hamitmizrak/2025_techcareer_frontend_fullstack_1.git)
-[Mongo Database]()
+[Mongo Database Cloud](https://www.mongodb.com/products/platform/cloud)
 [Font Awesome](https://fontawesome.com/search?ic=free)
 [Google Font](https://fonts.google.com/selection/embed)
 [Bootstrap](https://getbootstrap.com/)
 [Box Shadow Online](https://cssgenerator.pl/en/box-shadow-generator/)
 [jQuery](https://jquery.com//)
-
 ---
 
 ## Script run (Typescript başlat)
-
 ```sh
 npm run dev:paralel
 ```
-
 ---
 
 ## Version
-
 ```sh
 code .
 git -v
@@ -27,11 +22,9 @@ node -v
 npm -v
 tsc --version
 ```
-
 ---
 
 ## Git
-
 ```sh
 git init
 git add .
@@ -51,11 +44,9 @@ git checkout frontend
 
 git clone https://github.com/hamitmizrak/2025_techcareer_frontend_fullstack_1.git
 ```
-
 ---
 
 ## Visual Studio Code (VS Code) Extensions
-
 ```sh
 Auto Close Tag            => Jun Han
 Auto Complete Tag         => Jun Han
@@ -69,16 +60,14 @@ Docker Compsose            => Microsoft
 ES7+ React/Redux/React-Native snippets => dsznajder
 Git Graph                   => mhutchie
 Live Server                => Ritwick Dey
-MAterial Icon Theme        => Philipp Kief
+Material Icon Theme        => Philipp Kief
 Prettier - Code Formatter  => Prettier
 Prettier ESLint            => Rebecca Vest
 Rainbow Brackets           => MHammed Talhaouy
 ```
-
 ---
 
 ## Teknoloji İsimleri
-
 ```sh
 HTML5
 CSS3
@@ -95,11 +84,9 @@ REST API
 NGINX
 CI/CD
 ```
-
 ---
 
 ## Teknoloji İçerikleri
-
 ```sh
 nodemon
 mongoose
@@ -120,11 +107,9 @@ swagger-ui-express
 typescript
 winston
 ```
-
 ---
 
 ## VSCode (settings.json)
-
 ```sh
 
 {
@@ -147,20 +132,16 @@ winston
         "strings": true
     },
 ```
-
 ---
 
 ## NPM
-
 ```sh
 npm init
 npm init -y
 ```
-
 ---
 
 ## NPM INIT
-
 ```sh
 npm init
 package name:
@@ -179,11 +160,9 @@ author: Yüksek Bilgisayar Mühendisi Hamit Mızrak
 license: ISC
 Is this OK? yes
 ```
-
 ---
 
 ## NPM INIT -Y
-
 ```sh
 npm init -y
 Default
@@ -200,11 +179,9 @@ Default
   "license": "ISC"
 }
 ```
-
 ---
 
 ## package.json(Son Hali)
-
 ```sh
 {
   "name": "2025_techcareer_frontend_fullstack_1",
@@ -221,8 +198,9 @@ Default
     "dev:paralel": "concurrently -k \"npm run build_watch\" \"npm run nodemon_app_watch\" \"npm run server:start\""
   },
   "keywords": [],
-  "author": "",
+  "author": "MSc Computer Engineer Hamit Mızrak",
   "license": "ISC",
+  
   "dependencies": {
     "2025_techcareer_frontend_fullstack_1": "file:",
     "body-parser": "^1.20.3",
@@ -257,21 +235,17 @@ Default
   }
 }
 ```
-
 ---
 
 ## npm delete
-
 ```sh
 rm -rf node_modules
 ls -al
 npm install
 ```
-
 ---
 
 ## NPM Sıklıkla Kullanılan Komutlar-1
-
 ```sh
 npm search  express
 npm install express
@@ -291,11 +265,9 @@ npm update express
 npm uninstall express
 npm uninstall express@4.16.1
 ```
-
 ---
 
 ## NPM Sıklıkla Kullanılan Komutlar-2
-
 ```sh
 npm list
 npm ls
@@ -306,15 +278,13 @@ npm root                 # Local projemizdeli node_modules kütüphanesini göst
 npm root -g              # GLocal projemizdeli node_modules kütüphanesini göstersin
 Global node_modules: C:\Users\Hamit-Mizrak\AppData\Roaming\npm\node_modules
 ```
-
 ---
 
 ## NPM Sıklıkla Kullanılan Komutlar-3
-
 ```sh
 npm update              # package.json içindeki dosyalardaki paketleri günceller
 npm outdated            # Projede eskiyen veya güncellenmesi gereken paketleride gösterir
-npm audit               # Bağımlılıkların gücenlik analizleri rapor eder
+npm audit               # Bağımlılıkların güvenlik analizleri rapor eder
 npm audit fix           # Belirlenen güvenlik açıklarını otomatik olarak düzeltir.
 npm dedupe              # Bağımlılıkların tekrarlanan kopyalarını temizler.
 npm rebuild             # Tüm bağımlıkları yeniden derleme
@@ -330,11 +300,9 @@ npm login                # npm hesabınıza giriş içindir)
 npm pack                 # Node.js paketini .tgz sıkıştırma formatında ekliyor
 npm publish              # ilgili pkaeti npm gönder
 ```
-
 ---
 
 ## Npm Package Install (Local --save)
-
 ```sh
 npm list
 npm root
@@ -344,13 +312,10 @@ npm root -g
 # https://www.npmjs.com/
 npm list
 npm i body-parser compression cookie-parser cors csurf  ejs  express express-rate-limit helmet mongodb mongoose morgan  swagger-jsdoc swagger-ui-express  winston --save
-
 ```
-
 ---
 
 ## Npm Package Install (Local --save-dev)
-
 ```sh
 npm list
 npm root
@@ -368,13 +333,10 @@ npm install  eslint-plugin-prettier  npm-run-all --save-dev
 npm install
 npm dedupe  # Bağımlılıkların tekrarlanan kopyalarını temizler.
 npm list
-
 ```
-
 ---
 
 ## Npm Package Install (Global)
-
 ```sh
 npm list
 npm root
@@ -386,11 +348,9 @@ npm i body-parser compression cors csurf cookie-parser ejs  express express-rate
 npm dedupe  # Bağımlılıkların tekrarlanan kopyalarını temizler.
 npm list -g
 ```
-
 ---
 
 ## Typescript kurulum
-
 ```sh
 npm install typescript -g          # global
 npm install typescript --save-dev  # local
@@ -403,11 +363,9 @@ tsc --init
 tsc
 tsc -w (Sistem kendi compiler yapıyor yazdıklarımı kendi ekliyor.)
 ```
-
 ---
 
 ## Typescript (tsconfig.json )
-
 ```sh
 /* Bu dosya hakkında daha fazla bilgi için https://aka.ms/tsconfig sayfasını ziyaret edin */
 {
@@ -425,31 +383,25 @@ tsc -w (Sistem kendi compiler yapıyor yazdıklarımı kendi ekliyor.)
   "exclude": ["node_modules"]
 }
 ```
-
 ---
 
 ## script => package.json typescript
-
 ```sh
   "scripts": {
     "build_watch": "tsc -w --pretty",
   },
 ```
-
 ---
 
 ## Nodemon kurulum
-
 ```sh
 npm install  nodemon -g
 npm install  nodemon -D
 npm install  nodemon --save-dev
 ```
-
 ---
 
 ## nodemon.json (Nodemon.json)
-
 ```sh
 {
   "watch": ["src", "dist"],
@@ -457,21 +409,17 @@ npm install  nodemon --save-dev
   "exec": "node ./dist/server.js"
 }
 ```
-
 ---
 
 ## script => package.json nodemon-1
-
 ```sh
   "scripts": {
      "test": "echo \"Error: no test specified\" && exit 1",
   },
 ```
-
 ---
 
 ## package.json içinden Script yazmak-2
-
 ```sh
    "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -483,11 +431,9 @@ npm install  nodemon --save-dev
     "dev:paralel": "concurrently -k \"npm run build_watch\" \"npm run nodemon_app_watch\" \"npm run server:start\""
   },
 ```
-
 ---
 
 ## package.json içinden Script yazmak-3
-
 ```sh
   "scripts": {
     "start_app": "ts-node src/app.ts",
@@ -508,11 +454,9 @@ npm install  nodemon --save-dev
     "senkron:index": "npm-run-all --parallel  build_watch nodemon_index_watch"
   }
 ```
-
 ---
 
 ## Node JS Nedir ?
-
 ```sh
 NodeJS :
 - Chrome V8 Javascript motorunu kullanan, açık kaynak kodlu,
@@ -521,11 +465,9 @@ NodeJS :
 - Server Side(Server[Sunucu]) tarafından çalışan bir Javascript framework oldu.
 - Ryan Dahl ve Isaac Z. Schluter tarafından 2009 yılında geliştirmeye başlamış.
 ```
-
 ---
 
 ## Node JS Özellikleri
-
 ```sh
 Javascript betik dilimiz senkron(Aynı anda sadece bir iş yapan) çalışır.
 
@@ -540,11 +482,9 @@ Event-Driven (Olay odaklıdır),Non-Blocking I/O Modeli (Engelsiz Input(Girdi), 
 - Veri tabanı erişimlerinde MongoDB, mysql, postgresql
 - Routing(yönlendirme)
 ```
-
 ---
 
 ## Node JS Olay odaklı(event-driven), engelsiz(non-blocking) I/O Modeli, Event Loop
-
 ```sh
 - Bu model amacı performans metriğini artırmak içindir
 - Olay odaklı programlamada, bir programın olaylar(event) tepki verme şeklidir.
@@ -555,22 +495,18 @@ Event-Driven (Olay odaklıdır),Non-Blocking I/O Modeli (Engelsiz Input(Girdi), 
 - Callback function: programalada callback functionlar olay odaklı programlanın bir parçasıdır.
 - Olay odaklı bu model ölçeklenebilinirliliğini sağlar ve eş zamanlı çalışmayı sağlar
 ```
-
 ---
 
 ## Node JS Tarihçesi
-
 ```sh
 2009 geliştirilmeye başlandı
 2010 Non-blocking (Engelsiz)
 Windows
 LTS(Long Term Support: Uzaun vadeli destek)
 ```
-
 ---
 
-## Node JS Node JS Framework
-
+##  Node JS Framework
 ```sh
 - Express.js (En popüler olanı) hafiftir.
 - Koa.js (ES6 destekliyor) daha az kod
@@ -579,11 +515,9 @@ LTS(Long Term Support: Uzaun vadeli destek)
 - Sails.js (MVC) mimarisine dayanır.
 - Hapi.js (Büyük ölçekli projeler için uygundur)
 ```
-
 ---
 
 ## Node JS Framework Express
-
 ```sh
 - node js için en popüler hafif,esnek, bir web geliştirme platformudur.
 - Middleware: orta katman için uygundur.
@@ -596,38 +530,35 @@ LTS(Long Term Support: Uzaun vadeli destek)
 http://localhost:1111/admin
 http://localhost:1111/blog
 ```
-
 ---
 
 ## Npm Nedir
-
-````sh
-`winston` logger'ı, uygulamanızda hata ve bilgi loglarını düzgün bir şekilde yönetmek için kullanılır. Bu kodu genellikle uygulamanızın **`index.js`** veya **`server.js`** gibi ana giriş dosyasına eklemeniz gerekir. Logger, uygulamanızın başlangıcından itibaren tüm hataları ve bilgileri loglar.
+```sh
+`winston` logger'ı, uygulamanızda hata ve bilgi loglarını düzgün bir şekilde yönetmek için kullanılır. 
+Bu kodu genellikle uygulamanızın **`index.js`** veya **`server.js`** gibi ana giriş dosyasına eklemeniz gerekir. 
+Logger, uygulamanızın başlangıcından itibaren tüm hataları ve bilgileri loglar.
 
 ### 1. **Kurulum:**
 Öncelikle `winston` kütüphanesini yüklemeniz gerekiyor. Terminalde şu komutu çalıştırarak yükleyebilirsiniz:
-```bash
 npm install winston
-````
+```
 
 ## Npm Nedir
-
 ```sh
 Npm(Node Package Management): Paket yönetim sistemidir.
 Npm bize hızlı kodlar yazmamız için gereken alt yapıyı sunar.
 ```
-
 ---
 
 ## EJS
-
-````sh
+```sh
 **EJS (Embedded JavaScript)**, Node.js tabanlı uygulamalarda dinamik HTML içerik oluşturmak için kullanılan bir **şablon (template) motoru**dur.
 
 EJS ile, HTML sayfalarının içine JavaScript kodlarını gömerek dinamik içerik üretebilir ve sayfayı istemciye sunabilirsiniz.
 
 ### EJS'in Temel Özellikleri:
-1. **JavaScript ile Entegre**: EJS, HTML içine JavaScript kodu gömmeye izin verir. Bu, veritabanından gelen veya başka bir kaynaktan alınan verileri HTML içerisine kolayca entegre etmenizi sağlar.
+1. **JavaScript ile Entegre**: EJS, HTML içine JavaScript kodu gömmeye izin verir. 
+Bu, veritabanından gelen veya başka bir kaynaktan alınan verileri HTML içerisine kolayca entegre etmenizi sağlar.
 
    Örneğin, bir kullanıcı listesini HTML şablonuna eklemek:
    ```ejs
@@ -636,13 +567,14 @@ EJS ile, HTML sayfalarının içine JavaScript kodlarını gömerek dinamik içe
        <li><%= user.name %></li>
      <% }); %>
    </ul>
-````
+```
 
 - `<% %>`: JavaScript kodu çalıştırmak için kullanılır (örneğin, döngüler, koşullu ifadeler).
 
 - `<%= %>`: Değişken veya ifade değerini eklemek için kullanılır (HTML çıktısına veri eklemek).
 
-2. **Veri Bağlama (Data Binding)**: Sunucuda işlenen verileri, HTML sayfalarına kolayca ekleyebilirsiniz. Node.js tarafında oluşturulan veriler, EJS şablonuna gönderilir ve burada dinamik içerik oluşturulabilir.
+2. **Veri Bağlama (Data Binding)**: Sunucuda işlenen verileri, HTML sayfalarına kolayca ekleyebilirsiniz. 
+Node.js tarafında oluşturulan veriler, EJS şablonuna gönderilir ve burada dinamik içerik oluşturulabilir.
 
    Örneğin, bir Express.js route'unda:
 
@@ -655,9 +587,11 @@ EJS ile, HTML sayfalarının içine JavaScript kodlarını gömerek dinamik içe
 
    Bu veriler, EJS şablonunda yukarıda gösterilen şekilde kullanılarak liste halinde görüntülenir.
 
-3. **Esnek ve Hafif**: EJS, birçok şablon motoruna göre oldukça esnektir ve kolayca öğrenilebilir. HTML yapısının içerisine eklenen JavaScript kodu ile sadece gerekli yerlerde dinamik veri gösterimi yapılabilir.
+3. **Esnek ve Hafif**: EJS, birçok şablon motoruna göre oldukça esnektir ve kolayca öğrenilebilir. 
+HTML yapısının içerisine eklenen JavaScript kodu ile sadece gerekli yerlerde dinamik veri gösterimi yapılabilir.
 
-4. **Koşullu İfadeler ve Döngüler**: EJS, if-else blokları veya döngü yapılarını HTML ile birlikte kullanmanıza olanak tanır, bu da şablonların esnekliğini artırır.
+4. **Koşullu İfadeler ve Döngüler**: EJS, if-else blokları veya döngü yapılarını HTML ile birlikte kullanmanıza olanak tanır, 
+bu da şablonların esnekliğini artırır.
 
    Koşullu ifade örneği:
 
@@ -669,10 +603,10 @@ EJS ile, HTML sayfalarının içine JavaScript kodlarını gömerek dinamik içe
    <% } %>
    ```
 
-5. **Layout Desteği**: EJS, şablonlar arasında parçalama ve yeniden kullanma işlemlerini destekler. Layout'lar oluşturup, çeşitli şablonları bu ana yapıya dahil edebilirsiniz.
+5. **Layout Desteği**: EJS, şablonlar arasında parçalama ve yeniden kullanma işlemlerini destekler. 
+Layout'lar oluşturup, çeşitli şablonları bu ana yapıya dahil edebilirsiniz.
 
 ### EJS Nasıl Kullanılır?
-
 EJS'yi Node.js projenize şu şekilde dahil edebilirsiniz:
 
 1. **EJS'yi Projeye Eklemek**:
@@ -714,6 +648,7 @@ EJS'yi Node.js projenize şu şekilde dahil edebilirsiniz:
 
 ## EJS, basit dinamik HTML içerik oluşturma ihtiyacı olan projelerde oldukça kullanışlıdır ve Node.js uygulamalarıyla yaygın bir şekilde kullanılır.
 
+
 ## Mongo DB
 ```sh
 npm install mongodb
@@ -725,6 +660,20 @@ password:  cNrT66n13oQYtkps
 mongodb+srv://<your-name>:<your-password>@offlinenodejscluster.l3itd.mongodb.net/?retryWrites=true&w=majority&appName=OfflineNodejsCluster
 ```
 ---
+
+## MongoDB datase (Shelling)
+```sh 
+# Terminalde
+mongosh veya mongo
+use blogDB  # blogDB adında bir veritabanı oluştur ve ona geç
+
+db.posts.insertOne({
+    header: "İlk Blog Yazım",
+    content: "Bu benim ilk blog yazımın içeriğidir.",
+    author: "Hamit Mızrak.",
+    tags: "java,jsp",
+})
+```
 
 ## MONGO İÇİN VERİ GÜVENLİĞİ (dotenv)
 ```sh
@@ -763,7 +712,8 @@ Bu loglar sayesinde, isteklerin durumu, yanıt kodları, yanıt süreleri gibi b
 
 2. **Log Formatları**: Morgan, isteklere ait bilgileri çeşitli formatlarda loglayabilir (`combined`, `dev`, `short`, `common` gibi).
 
-3. **Geliştirme ve Üretim Ortamlarında Kullanım**: `dev` gibi kısa ve öz log formatları, geliştirme sırasında hızlı bilgi sağlar. `combined` gibi daha ayrıntılı formatlar ise üretim ortamında detaylı takip için uygundur.
+3. **Geliştirme ve Üretim Ortamlarında Kullanım**: `dev` gibi kısa ve öz log formatları, geliştirme sırasında hızlı bilgi sağlar. 
+`combined` gibi daha ayrıntılı formatlar ise üretim ortamında detaylı takip için uygundur.
 
 4. **Logların Dosyaya Yazdırılması**: Morgan logları, konsol yerine bir dosyaya yönlendirilebilir, böylece uygulamanın işlem geçmişi saklanabilir.
 
@@ -812,7 +762,8 @@ Morgan, Express.js gibi popüler Node.js çerçeveleri ile loglama işlemlerini 
 npm install winston
 
 ### 2. **index.js veya server.js Dosyasına Ekleme:**
-Logger kodunu projenizin başlangıç dosyasına ekleyin. Genellikle bu dosya `index.js` veya `server.js` olur. Aşağıdaki örnekte, `winston` logger kodu, `index.js` dosyasına eklenmiştir:
+Logger kodunu projenizin başlangıç dosyasına ekleyin. Genellikle bu dosya `index.js` veya `server.js` olur. 
+Aşağıdaki örnekte, `winston` logger kodu, `index.js` dosyasına eklenmiştir:
 
 ```javascript => index.js
 const express = require("express");
@@ -865,13 +816,11 @@ app.listen(port, () => {
 ```
 
 ### 3. **Winston Logger'ın Kullanımı:**
-Yukarıdaki kodda `logger.info()` ve `logger.error()` kullanarak bilgi ve hata loglarını yönetebilirsiniz. Örneğin:
-
+Yukarıdaki kodda `logger.info()` ve `logger.error()` kullanarak bilgi ve hata loglarını yönetebilirsiniz. 
+Örneğin:
 - `logger.info("Sunucu başlatıldı")`: Bilgi mesajlarını loglar.
 - `logger.error("Bir hata oluştu")`: Hata mesajlarını loglar.
-
 Bu loglar:
-
 - `error.log`: Sadece hata seviyesindeki logları içerir.
 - `combined.log`: Tüm logları içerir.
 
@@ -894,7 +843,6 @@ ve ağ üzerinde sayfaya daha hızlı erişimi sağlar
 Tüm Http cevaplarını sıkıştırarak gönderilmesini sağlar.
 const compression = require('compression');
 app.use(compression);
-
 ```
 ---
 
@@ -1144,11 +1092,10 @@ POST
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 // http://localhost:1111/api-docs
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-````
+```
 ---
 
 ## Konu
 ```sh
-
 ```
 ---

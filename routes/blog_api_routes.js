@@ -158,7 +158,6 @@ router.delete("/:id", async (request, response) => {
 }); //end list => get
 
 /////////////////////////////////////////////////////////////
-
 // EXPORT
 module.exports = router;
 
@@ -171,4 +170,4 @@ module.exports = router;
     "author": "Hamit Mızrak",
     "tags": "node",
 }
-    */
+*/

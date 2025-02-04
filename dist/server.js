@@ -1,6 +1,10 @@
 "use strict";
 // http://localhost:1111/daily/list
 console.info("server.js Server 1111 portunda ayağa kalktı");
+// Bitirme Projesi
+// username
+// password
+// email
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Import
 // Import Express (Express:  Node.js için esnek bir web uygulama çatısını inşa eder)

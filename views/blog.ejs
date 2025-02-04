@@ -1,7 +1,11 @@
+<!--
+EJS(Embedded JavaScript  bunu node.js kullandığımızda mongodb, api gibi verileri html içinde göstermek)
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>NodeJS, MongoDB, Rest API, jQuery</title>
+    <title>😂😂 Blog.ejs </title>
     <!-- for language  -->
     <meta charset="utf-8" />
 
@@ -29,7 +33,7 @@
     />
 
     <!-- External css -->
-    <!-- NOT: `/css/styles.css` için  public dizininde olması gerekiyor -->
+    <!-- NOT: `/css/blog.css` için  public dizininde olması gerekiyor -->
     <link rel="stylesheet" href="/css/style.css" />
   </head>
 
@@ -42,8 +46,9 @@
     <!-- Blog Form -->
     <!-- <form id="blog-form"> -->
     <!-- CSRF (Cross-Site Request Forgery):  action,POST için eklendi -->
+    <!-- blog için express router(yönlendirmesini yapacağım bunun için server.ts gelen verilerden kullanacağım) -->
     <form action="/blog" method="POST" id="blog-form">
-      <!-- CSRF (Cross-Site Request Forgery) -->
+      <!-- Dikkat: Eğer bunu yazmazsanız hata alırsınız. CSRF (Cross-Site Request Forgery) -->
       <input type="hidden" name="_csrf" id="_csrf" value="<%= csrfToken %>" />
 
       <!-- BLOG HEADER -->

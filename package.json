@@ -1,7 +1,7 @@
 {
   "name": "2025_techcareer_frontend_fullstack_1",
   "version": "1.0.0",
-  "description": "[GitHub Address](https://github.com/hamitmizrak/2025_techcareer_frontend_fullstack_1.git)\r [Mongo Database]()\r ---",
+  "description": "",
   "main": "./dist/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,9 +12,11 @@
     "dev:seri": "npm-run-all --serial build_watch nodemon_app_watch",
     "dev:paralel": "concurrently -k \"npm run build_watch\" \"npm run nodemon_app_watch\" \"npm run server:start\""
   },
-  "keywords": [],
-  "author": "",
+
+  "keywords": ["Html5, Css3, Js, NodeJS, ES5+, Bootstrap5, "],
+  "author": "MSc Computer Enginner Hamit Mızrak",
   "license": "ISC",
+
   "dependencies": {
     "2025_techcareer_frontend_fullstack_1": "file:",
     "body-parser": "^1.20.3",

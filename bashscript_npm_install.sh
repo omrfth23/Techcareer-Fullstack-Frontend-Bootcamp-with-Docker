@@ -32,9 +32,9 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
-NC=='\033[0m' # No Color
-###################################################
+NC='\033[0m' # No Color
 
+###################################################
 # ÖNEMLİ NOT: eğer windows üzerinden çalıştırıyorsanız sudo tanımayacaktır.
 # ÖNEMLİ NOT: nginx eğer browserda istediğiniz sonuç çıkmazsa browserin cache belleğini temizleyiniz. yoksa nginx'in kendi sayfasını görürüsünüz.
 #####################################################################################################
@@ -46,7 +46,6 @@ code .
 
 #####################################################################################################
 #####################################################################################################
-# file_mvc (Install)
 # file_mvc (Install)
 file_mvc() {
     # Geriye Sayım
@@ -62,12 +61,20 @@ file_mvc() {
         # Geriye Sayım
         ./bashscript_countdown.sh
 
+        # Log klasörü yoksa oluştur
+        if [ ! -d "logs" ]; then
+            mkdir logs
+            echo "logs klasörü oluşturuldu."
+        else
+            echo "logs klasörü zaten mevcut."
+        fi
+
         # pictures klasörü yoksa oluştur
         if [ ! -d "pictures" ]; then
-            mkdir models
-            echo "models klasörü oluşturuldu."
+            mkdir pictures
+            echo "pictures klasörü oluşturuldu."
         else
-            echo "models klasörü zaten mevcut."
+            echo "pictures klasörü zaten mevcut."
         fi
 
         # models klasörü yoksa oluştur
@@ -142,7 +149,8 @@ create_empty_files_if_not_exists() {
 
 # Fonksiyon çağrısı
 # Örnek olarak tüm dosyalar için çağrı
-create_empty_files_if_not_exists Dockerfile docker-compose.yml .gitlab-ci.yml  Readme.md style.css test.py shorting_keyboard.txt test.sh index.js
+create_empty_files_if_not_exists Dockerfile docker-compose.yml .gitlab-ci.yml Readme.md  shorting_keyboard.txt index.js
+#create_empty_files_if_not_exists Dockerfile docker-compose.yml .gitlab-ci.yml  Readme.md style.css test.py shorting_keyboard.txt index.js
 
 #####################################################################################################
 #####################################################################################################
@@ -193,7 +201,7 @@ index_html_install() {
         <h1 class="text-primary">Merhabalar Typescript Öğreniyorum</h1>
     
         <p>
-            lorem*40
+            lorem*10
         </p>
     
         <!-- End Codes -->
@@ -285,7 +293,71 @@ package_json() {
         ./bashscript_countdown.sh
 
         rm -rf node_modules
-        npm init -y 
+        #npm init  # içerikleri manul eklenir
+        npm init -y # içerikleri otomatik eklenir
+        # package.json yoksa oluştur
+        if [ ! -f "package.json" ]; then
+            echo "package.json oluşturuluyor..."
+            cat > .gitignore <<EOL
+# Special My Git untrackted
+{
+  "name": "2025_techcareer_frontend_fullstack_1",
+  "version": "1.0.0",
+  "description": "[GitHub Address](https://github.com/hamitmizrak/2025_techcareer_frontend_fullstack_1.git)\r [Mongo Database]()\r ---",
+  "main": "./dist/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node  ./dist/server.js",
+    "server:start": "lite-server",
+    "build_watch": "tsc -w --pretty",
+    "nodemon_app_watch": "nodemon --watch src --watch dist ./dist/server.js",
+    "dev:seri": "npm-run-all --serial build_watch nodemon_app_watch",
+    "dev:paralel": "concurrently -k \"npm run build_watch\" \"npm run nodemon_app_watch\" \"npm run server:start\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "2025_techcareer_frontend_fullstack_1": "file:",
+    "body-parser": "^1.20.3",
+    "compression": "^1.7.5",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "csurf": "^1.10.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "mongodb": "^6.12.0",
+    "mongoose": "^8.9.5",
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.12.0",
+    "concurrently": "^9.1.2",
+    "dotenv": "^16.4.7",
+    "eslint": "^9.19.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "lite-server": "^2.6.1",
+    "nodemon": "^3.1.9",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.4.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
+
+EOL
+            echo ".gitignore oluşturuldu ve içerik eklendi."
+        else
+            echo ".gitignore zaten mevcut."
+        fi
+
+        echo -e "\e[32m.gitignore kurulumu tamamlandı!\e[0m"
     else
         echo -e "\e[31mpackage Json Yüklenmeye Başlanmadı ....\e[0m"
     fi
@@ -348,15 +420,15 @@ npm_local_dev_sav() {
         #npm root -g
 
         # https://www.npmjs.com/
-        npm i nodemon typescript   --save-dev
+        npm i nodemon typescript   -D
+        #npm i nodemon typescript   --save-dev
         npm install lite-server --save-dev
         npm i  @types/node dotenv concurrently --save-dev
         npm i eslint eslint-config-prettier eslint-plugin-prettier npm-run-all --save-dev
         npm i prettier ts-node --save-dev
         npm install
         npm dedupe  # Bağımlılıkların tekrarlanan kopyalarını temizler.
-        npm list  
-
+        npm list
     else
         echo -e "\e[31mNpm Save-Dev Yüklenmeye Başlanmadı ....\e[0m"
     fi
@@ -386,7 +458,7 @@ npm_global_save() {
 
         # https://www.npmjs.com/
         npm i body-parser compression cors csurf cookie-parser ejs  express express-rate-limit helmet mongodb morgan mongoose swagger-jsdoc swagger-ui-express  winston -g
-        npm install lite-server 
+        npm install lite-server -g
         npm list -g 
     else
         echo -e "\e[31mNpm Global Save Yüklenmeye Başlanmadı ....\e[0m"
@@ -424,15 +496,15 @@ typescript_install() {
         npm install typescript -g          # Global kurulum
         echo "Local TypeScript kurulumu yapılıyor..."
         npm install typescript --save-dev  # Local kurulum
+        #npm install typescript -D  # Local kurulum
         echo "TypeScript ayar dosyası oluşturuluyor..."
 
-        #tsc --init --locale tr             # TypeScript ayar dosyası
+        #tsc --init --locale tr          # TypeScript ayar dosyası
         #tsc --init --locale             # TypeScript ayar dosyası
 
         ls -al
         # index.ts yoksa oluştur
         if [ ! -f "tsconfig.json" ]; then
-            echo "tsconfig.json oluşturuluyor..."
             cat > tsconfig.json <<EOL
 /* Bu dosya hakkında daha fazla bilgi için https://aka.ms/tsconfig sayfasını ziyaret edin */
 {
@@ -461,7 +533,7 @@ EOL
 
 
         echo "Mevcut dizindeki dosyalar:"
-        ls -al                             # Dosya listesini görüntüle
+        ls -al    # Dosya listesini görüntüle
 
         # src klasörü yoksa oluştur
         if [ ! -d "src" ]; then
@@ -471,13 +543,13 @@ EOL
             echo "src klasörü zaten mevcut."
         fi
 
-        # src dizinine gir
+        # src dizinine gir (server.ts oluştur)
         cd src || { echo "src klasörüne girilemedi. Script sonlandırılıyor."; exit 1; }
         ls -al
         # index.ts yoksa oluştur
-        if [ ! -f "index.ts" ]; then
-            echo "index.ts oluşturuluyor..."
-            cat > index.ts <<EOL
+        if [ ! -f "server.ts" ]; then
+            echo "server.ts oluşturuluyor..."
+            cat > server.ts <<EOL
 // This is the initial content of index.ts
 let exam = "Merhabalar Ts";
 console.log(exam);
@@ -517,7 +589,6 @@ nodemon_install() {
         # Geriye Sayım
         ./bashscript_countdown.sh
 
-
         # index.js yoksa oluştur
         if [ ! -f "nodemon.json" ]; then
             echo "nodemon.json oluşturuluyor..."
@@ -525,7 +596,7 @@ nodemon_install() {
 {
   "watch": ["src", "dist"],
   "ext": "ts,js",
-  "exec": "node ./dist/index.js"
+  "exec": "node ./dist/server.js"
 }
 EOL
             echo "nodemon.json oluşturuldu ve içerik eklendi."
@@ -610,7 +681,7 @@ package_json_script_added() {
         fi
 
         # Yeni scriptler JSON formatında tanımlanıyor
-        NEW_SCRIPTS=',\"server:start\": \"lite-server\",\n      \"build_watch\": \"tsc -w --pretty\",\n  \"nodemon_app_watch\": \"nodemon --watch src --watch dist ./dist/index.js\",\n  \"dev:seri\": \"npm-run-all --serial build_watch nodemon_app_watch\",\n  \"dev:paralel\": \"concurrently -k \\\"npm run build_watch\\\" \\\"npm run nodemon_app_watch\\\" \\\"npm run server:start\\\"\"'
+        NEW_SCRIPTS=',\"start\": \"node  ./dist/server.js\",\n ,\"server:start\": \"lite-server\",\n     \"build_watch\": \"tsc -w --pretty\",\n  \"nodemon_app_watch\": \"nodemon --watch src --watch dist ./dist/index.js\",\n  \"dev:seri\": \"npm-run-all --serial build_watch nodemon_app_watch\",\n  \"dev:paralel\": \"concurrently -k \\\"npm run build_watch\\\" \\\"npm run nodemon_app_watch\\\" \\\"npm run server:start\\\"\"'
 
         # "scripts" alanını bul ve "test" scriptinden sonra yeni scriptleri ekle
         sed -i.bak "/\"test\": /a \
@@ -633,7 +704,7 @@ package_json_script_added
 
 #####################################################################################################
 #####################################################################################################
-# Npm Compiler (Install)
+# Lite-Server (Install)
 server_start() {
     # Geriye Say
     ./bashscript_countdown.sh
@@ -661,7 +732,6 @@ server_start() {
     "index": "index.html"
   }
 }
-
 EOL
             echo "bs-config.jsonoluşturuldu ve içerik eklendi."
         else
@@ -679,11 +749,16 @@ EOL
 
 # Fonksiyonu çalıştır
 server_start
+#####################################################################################################
+#####################################################################################################
 
 
 #####################################################################################################
 #####################################################################################################
-# Npm Compiler (Install)
+
+#####################################################################################################
+#####################################################################################################
+# Mongo_env (Install)
 mongo_env() {
     # Geriye Say
     ./bashscript_countdown.sh
@@ -701,8 +776,20 @@ mongo_env() {
         if [ ! -f ".env" ]; then
             echo ".env oluşturuluyor..."
             cat > .env <<EOL
+; Local
 MONGO_USERNAME=hamitmizrak
-MONGO_PASSWORD=C5445Xrl
+MONGO_PASSWORD=
+MONGO_PORT=27017
+
+; Cloud
+MONGO_CLOUD_USERNAME=hamitmizrak
+MONGO_CLOUD_PASSWORD=
+MONGO_CLOUD_PORT=27017
+
+; Docker
+MONGO_DOCKER_USERNAME=hamitmizrak
+MONGO_DOCKER_PASSWORD=
+MONGO_DOCKER_PORT=27017
 EOL
             echo ".env.json oluşturuldu ve içerik eklendi."
         else
@@ -717,7 +804,6 @@ EOL
 
 # Fonksiyonu çalıştır
 mongo_env
-
 
 #####################################################################################################
 #####################################################################################################
@@ -737,6 +823,7 @@ git_push() {
         git add .
         git commit -m "commit mesajı"
         git push
+        #git push --force
     else
         echo -e "\e[31mGit Push Yüklenmeye Başlanmadı ....\e[0m"
     fi
@@ -747,3 +834,5 @@ git_push
 #####################################################################################################
 # Typescript başlat
 npm run dev:paralel
+
+# rm -rf node_modules src model routes views

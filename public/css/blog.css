@@ -1,10 +1,10 @@
-:root{
-    --primary-color:#007bff!important;
-    --body-bgcolor:#3b5b5d!important;
-    --body-color:#b7e8ec!important;
+:root {
+    --primary-color: #007bff !important;
+    --body-bgcolor: #3b5b5d !important;
+    --body-color: #b7e8ec !important;
 }
 
-*{
+* {
     margin: 0;
     padding: 0px;
     box-sizing: border-box;
@@ -14,7 +14,7 @@ html {
     font-size: 18px;
 }
 
-body{
+body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.2rem;
     line-height: 1.2;
@@ -26,37 +26,37 @@ body{
     align-items: center;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-ul{
-    list-style-type:none;
+ul {
+    list-style-type: none;
 }
 
-img{
+img {
     max-width: 100%;
     height: auto;
     transition: 1s all;
 }
 
-img:hover{
+img:hover {
     opacity: .9;
-    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.8);
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.8);
     cursor: pointer;
 }
 
-.line-clamp5{
+.line-clamp5 {
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-.uppercase{
+.uppercase {
     text-transform: uppercase;
 }
 
-.lowercase{
+.lowercase {
     text-transform: lowercase;
 }

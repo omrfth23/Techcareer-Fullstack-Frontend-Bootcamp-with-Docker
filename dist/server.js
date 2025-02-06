@@ -13,7 +13,7 @@ console.info("server.js Server 1111 portunda ayağa kalktı");
 // Import
 // Import Express (Express:  Node.js için esnek bir web uygulama çatısını inşa eder)
 // Bu modüllerle beraber HTTP istekleri(request) işleyecek ve istemciye(server) yanıt dönecektir.
-// DİKKAT: index.js  require("express") kullanılır
+// DİKKAT: index.js  require("express") kullanılır 
 // DİKKAT: index.ts  import("express") kullanılır.
 // Express Import
 const express = require("express");
@@ -29,9 +29,6 @@ const helmet = require("helmet");
 // Swagger UI
 // const swaggerJsDoc = require("swagger-jsdoc");
 // const swaggerUi = require("swagger-ui-express");
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// import
-const path_1 = __importDefault(require("path"));
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // bodyParser Import
 const bodyParser = require("body-parser");
@@ -57,6 +54,30 @@ if (process.env.NODE_ENV !== "production") {
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Mongo DB Bağlantısı
+// username:  hamitmizrak
+// password:  <password>
+// mongodb+srv://hamitmizrak:<password>@offlinenodejscluster.l3itd.mongodb.net/?retryWrites=true&w=majority&appName=OfflineNodejsCluster
+/*
+mongosh
+
+use mydb  // Veritabanınızı kullanın
+db.getUsers()
+
+VEYA
+
+use admin
+db.getUsers()
+
+db.createUser({
+  user: "blogAdmin",
+  pwd: "BlogPass123",
+  roles: [
+    { role: "readWrite", db: "blogDB" } // blogDB üzerinde okuma ve yazma yetkisi
+  ]
+})
+
+
+ */
 // Localhostta MongoDB yüklüyse)
 // Bu proje için docker-compose üzerinden 27017 porta sahip mongodb kurdum
 const dotenv_1 = __importDefault(require("dotenv"));
@@ -184,6 +205,7 @@ Kullanıcı browser üzerinden oturum açtığında ve kimlik doğrulama bilgile
 // http://localhost:1111/style.css
 // app.use(express.static("public"));
 // 📌 Statik Dosya Servisi (index44.html'nin çalışması için)
+const path_1 = __importDefault(require("path"));
 app.use(express.static(path_1.default.join(__dirname, "../public")));
 // 📌 Ana Sayfa (`index44.html`) Yönlendirmesi
 app.get("/", (req, res) => {
@@ -191,7 +213,7 @@ app.get("/", (req, res) => {
 });
 // Formu render eden rota ("/")
 // Anasayfaya yönlendir.
-app.get("/blog/api", csrfProtection, (request, response) => {
+app.get("/blog", csrfProtection, (request, response) => {
     // İstek gövdesinde JSON(Javascript Object Notation) formatında veri göndereceğini belirtir.
     //response.setHeader("Content-Type", "application/json");
     //response.setHeader("Content-Type", "text/plain"); // name Hamit surnameMızrak
@@ -221,7 +243,7 @@ app.get("/blog/api", csrfProtection, (request, response) => {
 // DİKKATT: Eğer  blog_api_routes.js post kısmında event.preventDefault(); kapatırsam buraki kodlar çalışır.
 // blog için CSRF koruması eklenmiş POST işlemi
 // app.post("/blog", csrfProtection, (request, response) => {
-app.post("/blog/api", csrfProtection, (request, response) => {
+app.post("/", csrfProtection, (request, response) => {
     const blogData = {
         header: request.body.header,
         content: request.body.content,
@@ -267,7 +289,7 @@ app.set("view engine", "ejs");
 const blogRoutes = require("../routes/blog_api_routes");
 const { request } = require("http");
 // http://localhost:1111/blog
-app.use("/blog/", blogRoutes);
+app.use("/blog/api", blogRoutes);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 404 Hata sayfası

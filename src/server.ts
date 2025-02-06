@@ -10,7 +10,7 @@ console.info("server.js Server 1111 portunda ayağa kalktı");
 // Import Express (Express:  Node.js için esnek bir web uygulama çatısını inşa eder)
 // Bu modüllerle beraber HTTP istekleri(request) işleyecek ve istemciye(server) yanıt dönecektir.
 
-// DİKKAT: index.js  require("express") kullanılır
+// DİKKAT: index.js  require("express") kullanılır 
 // DİKKAT: index.ts  import("express") kullanılır.
 
 // Express Import
@@ -32,10 +32,6 @@ const helmet = require("helmet");
 // Swagger UI
 // const swaggerJsDoc = require("swagger-jsdoc");
 // const swaggerUi = require("swagger-ui-express");
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// import
-import path from "path";
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // bodyParser Import
@@ -69,6 +65,30 @@ if (process.env.NODE_ENV !== "production") {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Mongo DB Bağlantısı
+// username:  hamitmizrak
+// password:  <password>
+// mongodb+srv://hamitmizrak:<password>@offlinenodejscluster.l3itd.mongodb.net/?retryWrites=true&w=majority&appName=OfflineNodejsCluster
+/*
+mongosh
+
+use mydb  // Veritabanınızı kullanın
+db.getUsers()
+
+VEYA
+
+use admin
+db.getUsers()
+
+db.createUser({
+  user: "blogAdmin",
+  pwd: "BlogPass123",
+  roles: [
+    { role: "readWrite", db: "blogDB" } // blogDB üzerinde okuma ve yazma yetkisi
+  ]
+})
+
+
+ */
 
 // Localhostta MongoDB yüklüyse)
 // Bu proje için docker-compose üzerinden 27017 porta sahip mongodb kurdum
@@ -221,8 +241,10 @@ Kullanıcı browser üzerinden oturum açtığında ve kimlik doğrulama bilgile
 // http://localhost:1111/style.css
 // app.use(express.static("public"));
 // 📌 Statik Dosya Servisi (index44.html'nin çalışması için)
-
+import path from "path";
 app.use(express.static(path.join(__dirname, "../public")));
+
+
 
 // 📌 Ana Sayfa (`index44.html`) Yönlendirmesi
 app.get("/", (req:any, res:any,) => {
@@ -314,6 +336,8 @@ app.post("/blog/api", csrfProtection, (request:any, response:any) => {
             response.status(500).send("Veritabanı hatası oluştu.");
         });
 });
+
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

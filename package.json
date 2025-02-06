@@ -10,13 +10,13 @@
     "build_watch": "tsc -w --pretty",
     "nodemon_app_watch": "nodemon --watch src --watch dist ./dist/server.js",
     "dev:seri": "npm-run-all --serial build_watch nodemon_app_watch",
-    "dev:parallel": "concurrently -k \"npm run build_watch\" \"npm run nodemon_app_watch\" \"npm run server:start\""
+    "dev:paralel": "concurrently -k \"npm run build_watch\" \"npm run nodemon_app_watch\" \"npm run server:start\""
   },
-
-  "keywords": ["Html5, Css3, Js, NodeJS, ES5+, Bootstrap5, "],
+  "keywords": [
+    "Html5, Css3, Js, NodeJS, ES5+, Bootstrap5, "
+  ],
   "author": "MSc Computer Enginner Hamit Mızrak",
   "license": "ISC",
-
   "dependencies": {
     "2025_techcareer_frontend_fullstack_1": "file:",
     "body-parser": "^1.20.3",

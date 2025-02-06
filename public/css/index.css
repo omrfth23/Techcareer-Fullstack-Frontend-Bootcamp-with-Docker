@@ -94,14 +94,8 @@ img:hover {
     transition: 3s all;
 }
 
-/* Horizantal */
-.special_hr{
-    font-weight: bold!important;
-}
-
 /* #### Line Clamp (Metin Kısaltma) #### */
 .line-clamp4,
-.line-clamp5,
 .line-clamp8,
 .line-clamp10,
 .line-clamp20 {
@@ -112,10 +106,6 @@ img:hover {
 
 .line-clamp4 {
     -webkit-line-clamp: 4;
-}
-
-.line-clamp5 {
-    -webkit-line-clamp: 5;
 }
 
 .line-clamp8 {
@@ -138,7 +128,7 @@ img:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px; /* Navbar first height */
+    height: 50px; /* Navvar first height */
     z-index: 1000;
     padding: 0.8rem 0;
     color: var(--white);
@@ -148,6 +138,7 @@ img:hover {
     /* display: none !important ; */
     display: flex;
     align-items: center;
+
 }
 
 #navbar_first .container {
@@ -162,7 +153,6 @@ img:hover {
     display: flex;
     gap: 1rem;
     align-items: center;
-    margin-top:1rem;
 }
 
 /* Sağ (Login/Register/Admin) */
@@ -193,8 +183,8 @@ img:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.05);
 }
@@ -210,7 +200,7 @@ img:hover {
     top: 50px;
     left: 0;
     width: 100%;
-    /* height: 60px;  Navbar second height */
+    /* height: 60px; Navbar second height */
     z-index: 1;
     background-color: var(--dark);
     transition: top 0.3s ease-in-out;
@@ -226,6 +216,10 @@ img:hover {
     color: var(--warning) !important;
     background: rgba(255, 255, 255, 0.1);
     transform: scale(1.05);
+}
+
+.nav-collapse ul{
+    background-color:#1c1c1c ;
 }
 
 /* Dropdown Animasyonu */
@@ -272,7 +266,6 @@ img:hover {
 }
 
 
-
 /*############################################################################################################## */
 /* #### Header ############################################################################################## */
 header {
@@ -281,7 +274,7 @@ header {
     background-position: 50% 50%;
     z-index: -1;
     height: 55vh;
-    padding-top: 0.5rem;
+    padding-top: 12rem;
 }
 
 /*############################################################################################################## */
@@ -311,16 +304,16 @@ header {
 }
 
 #newspaper_p:hover {
-    opacity: 0.6;
+    opacity: 0.8;
     transition: 4s all;
-    background-color: var(--dark)!important;
+    background-color: var(--blue)!important;
     color: var(--white)!important;
 }
 
-/* blog Card */
+/* blog */
 #blog {
     /* background-color: var(--light); */
-    padding: 0.5rem;
+    padding: 1rem;
 }
 
 #card_body {
@@ -336,8 +329,39 @@ header {
 
 .card-img-top {
     width: 100%;
-    height: 15rem !important;
+    height: 25rem !important;
     object-fit: cover;
+}
+
+/* #### Mobil Uyumluluk (Card) #### */
+/* 1<=X<=767 */
+@media screen and (min-width: 1px) {
+    #card_body {
+        width: 100% !important;
+    }
+
+}
+
+/* 768<=X<=1199 */
+@media screen and (min-width: 768px) {
+    #card_body {
+        width: 49% !important;
+    }
+}
+
+
+/* 900<=X<=1199 */
+@media screen and (min-width: 900px) {
+    #card_body {
+        width: 32% !important;
+    }
+}
+
+/* x>=1200 */
+@media screen and (min-width: 1200px) {
+    #card_body {
+        width: 24% !important;
+    }
 }
 
 /*############################################################################################################## */
@@ -357,35 +381,4 @@ header {
 
 #back_top:hover {
     opacity: 0.6;
-}
-
-/*############################################################################################################## */
-/* #### Media Query ############################################################################# */
-/* #### Mobil Uyumluluk (Card) #### */
-/* 1<=X<=767 */
-@media screen and (min-width: 1px) {
-    #card_body {
-        width: 100% !important;
-    }
-}
-
-/* 768<=X<=1199 */
-@media screen and (min-width: 768px) {
-    #card_body {
-        width: 49% !important;
-    }
-}
-
-/* 900<=X<=1199 */
-@media screen and (min-width: 900px) {
-    #card_body {
-        width: 32% !important;
-    }
-}
-
-/* x>=1200 */
-@media screen and (min-width: 1200px) {
-    #card_body {
-        width: 24% !important;
-    }
 }

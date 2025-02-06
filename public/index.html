@@ -63,8 +63,8 @@
     </style>
 
     <!-- External Css -->
-    <link rel="stylesheet" href="css/index.css"/>
-    <!--<link rel="stylesheet" href="./css/index.css"/>-->
+    <link rel="stylesheet" href="./css/index.css"/>
+
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar_second">
@@ -110,10 +110,10 @@
             <a href="#" title="Login" class="text-primary me-2 nav-icon">
                 <i class="fa-solid fa-user"></i>
             </a>
-            <a href="/register" title="Register" class="text-warning me-2 nav-icon">
+            <a href="#" title="Register" class="text-warning me-2 nav-icon">
                 <i class="fa-solid fa-user-secret"></i>
             </a>
-            <a href="/blog/api" target="_blank" title="Admin" class="text-danger nav-icon">
+            <a href="http://localhost:1111/" target="_blank" title="Admin" class="text-danger nav-icon">
                 <i class="fa-solid fa-user-shield"></i>
             </a>
         </div>
@@ -127,7 +127,7 @@
 >
     <div class="container">
         <!-- Logo -->
-        <a class="navbar-brand fw-bold d-flex align-items-center" href="/public">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
             <i class="fa-solid fa-code me-2"></i> LOGO
         </a>
 
@@ -182,7 +182,7 @@
                     >More</a
                     >
                     <ul class="dropdown-menu animate-dropdown">
-                        <li><a class="dropdown-item" href="/blog/api">Blog</a></li>
+                        <li><a class="dropdown-item" href="/blog">Blog</a></li>
                         <li><a class="dropdown-item" href="#">Action 2</a></li>
                     </ul>
                 </li>
@@ -193,7 +193,7 @@
                 <input
                         class="form-control me-2 search-input"
                         type="search"
-                        placeholder="Search ..."
+                        placeholder="Search"
                 />
                 <button class="btn btn-outline-success search-btn" type="submit">
                     Search
@@ -209,17 +209,18 @@
     <div class="jumbotron text-white">
         <div class="container">
             <div class="p-5 text-center">
-                <h1 class="text-uppercase display-3 bg-dark" style="opacity: 0.9; padding:3rem;">
+                <h1 class="text-uppercase display-3 bg-dark" style="opacity: 0.9">
                     Full Stack eğitimimize Hoşgeldiniz
                 </h1>
-                <h4 class="bg-dark" style="opacity: 0.9; padding:1.5rem;">
+                <h4 class="bg-dark" style="opacity: 0.9">
                     Html5,Css3,Js,TS,ES,Node,Mongo
                 </h4>
-                <a href="#" title="Linkedin" class="btn btn-primary me-2 mt-4"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#" title="Youtube" class="btn btn-secondary me-2 mt-4"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#" title="Github" class="btn btn-warning me-2 mt-4"><i class="fa-brands fa-github"></i></a>
-                <a href="#" title="Medium" class="btn btn-dark btn-outline-warning44 me-2 mt-4"><i
-                        class="fa-brands fa-medium"></i></a>
+                <a href="" class="btn btn-primary me-2 mt-4">Linkedin</a>
+                <a href="" class="btn btn-secondary me-2 mt-4">Linkedin</a>
+                <a href="" class="btn btn-dark me-2 mt-4">Linkedin</a>
+                <a href="" class="btn btn-warning btn-outline-warning44 me-2 mt-4"
+                >Linkedin</a
+                >
             </div>
         </div>
     </div>
@@ -229,13 +230,12 @@
 <!-- main start -->
 <main id="main">
     <!-- ICON -->
-    <!-- section#out_icon>div.message>h2.text-center.text-uppercase.mt-3.mb-3+div.container>div.row>(div.col-12.col-md-3.col-xl-4.text-center>i+h4{Başlık-$}+p.line-clamp5.text-center{lorem20}+a.btn.btn-primary{More...})*3 -->
+    <!-- section#out_icon>div.message>h2.text-center.text-uppercase.mt-3.mb-3+div.container>div.row>(div.col-12.col-md-3.col-xl-4.text-center>i+h4{Başlık-$}+p.line-clamp4.text-center{lorem20}+a.btn.btn-primary{More...})*3 -->
     <section id="out_icon">
         <div class="message">
             <h2 class="text-center text-uppercase mt-3 mb-5 text-light display-5">
                 Yaptığımız İşler
             </h2>
-            <hr class="special_hr">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-3 col-xl-4 text-center">
@@ -281,7 +281,6 @@
                 <h2 class="text-center text-uppercase mt-3 mb-5 display-5">
                     Yeni Haber
                 </h2>
-                <hr class="special_hr">
                 <p id="newspaper_p">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem harum
                     perferendis maxime rerum soluta at reprehenderit possimus sint
@@ -324,9 +323,7 @@
         <h2 class="text-center text-uppercase mt-3 mb-5 text-light display-5">
             Bloglar
         </h2>
-        <hr class="special_hr">
-
-        <h2 class="text-center mb-3 mt-1" style="color: white">Son 12 Blog</h2>
+        <h2 class="text-center mb-3 mt-1" style="color: white">Son 6 Blog</h2>
         <div class="row">
             <!-- card-1 -->
             <div class="col-md-4 mb-4" id="card_body">
@@ -336,7 +333,7 @@
                         <h5 class="card-title text-center h1 text-uppercase">
                             başlık-1
                         </h5>
-                        <p class="card-text line-clamp5">
+                        <p class="card-text line-clamp8">
                             içerik-1 Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Officia dolore culpa alias minima nisi rem quae
                             necessitatibus, sapiente in ipsam magni ab fugit itaque
@@ -359,9 +356,9 @@
                     <img src="pictures/kart5.jpg" alt="" class="card-img-top"/>
                     <div class="card-body">
                         <h5 class="card-title text-center h1 text-uppercase">
-                            başlık-2
+                            başlık-1
                         </h5>
-                        <p class="card-text line-clamp5">
+                        <p class="card-text line-clamp8">
                             içerik-2 Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Officia dolore culpa alias minima nisi rem quae
                             necessitatibus, sapiente in ipsam magni ab fugit itaque
@@ -378,15 +375,15 @@
                 </div>
             </div>
 
-            <!-- card-3 -->
+            <!-- card-1 -->
             <div class="col-md-4 mb-4" id="card_body">
                 <div class="card blog-card">
                     <img src="pictures/kart3.webp" alt="" class="card-img-top"/>
                     <div class="card-body">
                         <h5 class="card-title text-center h1 text-uppercase">
-                            başlık-3
+                            başlık-1
                         </h5>
-                        <p class="card-text line-clamp5">
+                        <p class="card-text line-clamp8">
                             içerik-3 Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Officia dolore culpa alias minima nisi rem quae
                             necessitatibus, sapiente in ipsam magni ab fugit itaque
@@ -403,15 +400,15 @@
                 </div>
             </div>
 
-            <!-- card-4 -->
+            <!-- card-1 -->
             <div class="col-md-4 mb-4" id="card_body">
                 <div class="card blog-card">
                     <img src="pictures/kart1.webp" alt="" class="card-img-top"/>
                     <div class="card-body">
                         <h5 class="card-title text-center h1 text-uppercase">
-                            başlık-4
+                            başlık-1
                         </h5>
-                        <p class="card-text line-clamp5">
+                        <p class="card-text line-clamp8">
                             içerik-4 Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Officia dolore culpa alias minima nisi rem quae
                             necessitatibus, sapiente in ipsam magni ab fugit itaque
@@ -434,9 +431,9 @@
                     <img src="pictures/kart4.webp" alt="" class="card-img-top"/>
                     <div class="card-body">
                         <h5 class="card-title text-center h1 text-uppercase">
-                            başlık-5
+                            başlık-1
                         </h5>
-                        <p class="card-text line-clamp5">
+                        <p class="card-text line-clamp8">
                             içerik-5 Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Officia dolore culpa alias minima nisi rem quae
                             necessitatibus, sapiente in ipsam magni ab fugit itaque
@@ -459,9 +456,9 @@
                     <img src="pictures/kart3.webp" alt="" class="card-img-top"/>
                     <div class="card-body">
                         <h5 class="card-title text-center h1 text-uppercase">
-                            başlık-6
+                            başlık-1
                         </h5>
-                        <p class="card-text line-clamp5">
+                        <p class="card-text line-clamp8">
                             içerik-6 Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Officia dolore culpa alias minima nisi rem quae
                             necessitatibus, sapiente in ipsam magni ab fugit itaque
@@ -484,9 +481,9 @@
                     <img src="pictures/kart1.webp" alt="" class="card-img-top"/>
                     <div class="card-body">
                         <h5 class="card-title text-center h1 text-uppercase">
-                            başlık-7
+                            başlık-1
                         </h5>
-                        <p class="card-text line-clamp5">
+                        <p class="card-text line-clamp8">
                             içerik-7 Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Officia dolore culpa alias minima nisi rem quae
                             necessitatibus, sapiente in ipsam magni ab fugit itaque
@@ -509,9 +506,9 @@
                     <img src="pictures/kart2.webp" alt="" class="card-img-top"/>
                     <div class="card-body">
                         <h5 class="card-title text-center h1 text-uppercase">
-                            başlık-8
+                            başlık-1
                         </h5>
-                        <p class="card-text line-clamp5">
+                        <p class="card-text line-clamp8">
                             içerik-8 Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Officia dolore culpa alias minima nisi rem quae
                             necessitatibus, sapiente in ipsam magni ab fugit itaque
@@ -534,85 +531,10 @@
                     <img src="pictures/kart3.webp" alt="" class="card-img-top"/>
                     <div class="card-body">
                         <h5 class="card-title text-center h1 text-uppercase">
-                            başlık-9
+                            başlık-1
                         </h5>
-                        <p class="card-text line-clamp5">
+                        <p class="card-text line-clamp8">
                             içerik-9 Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Officia dolore culpa alias minima nisi rem quae
-                            necessitatibus, sapiente in ipsam magni ab fugit itaque
-                            obcaecati enim quasi possimus officiis sint? Veniam hic amet
-                            error corrupti vero mollitia necessitatibus voluptass
-                            excepturi. Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Itaque earum quam, delectus eligendi dolores dolore
-                            atque pariatur commodi officia voluptas, quaerat accusamus
-                            accusantium debitis assumenda error! Culpa consectetur
-                            doloribus esse.
-                        </p>
-                        <a href="" class="btn btn-primary">Daha Fazla</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- card-10 -->
-            <div class="col-md-4 mb-4" id="card_body">
-                <div class="card blog-card">
-                    <img src="pictures/kart3.webp" alt="" class="card-img-top"/>
-                    <div class="card-body">
-                        <h5 class="card-title text-center h1 text-uppercase">
-                            başlık-10
-                        </h5>
-                        <p class="card-text line-clamp5">
-                            içerik-10 Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Officia dolore culpa alias minima nisi rem quae
-                            necessitatibus, sapiente in ipsam magni ab fugit itaque
-                            obcaecati enim quasi possimus officiis sint? Veniam hic amet
-                            error corrupti vero mollitia necessitatibus voluptass
-                            excepturi. Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Itaque earum quam, delectus eligendi dolores dolore
-                            atque pariatur commodi officia voluptas, quaerat accusamus
-                            accusantium debitis assumenda error! Culpa consectetur
-                            doloribus esse.
-                        </p>
-                        <a href="" class="btn btn-primary">Daha Fazla</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- card-11 -->
-            <div class="col-md-4 mb-4" id="card_body">
-                <div class="card blog-card">
-                    <img src="pictures/kart1.webp" alt="" class="card-img-top"/>
-                    <div class="card-body">
-                        <h5 class="card-title text-center h1 text-uppercase">
-                            başlık-11
-                        </h5>
-                        <p class="card-text line-clamp5">
-                            içerik-11 Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Officia dolore culpa alias minima nisi rem quae
-                            necessitatibus, sapiente in ipsam magni ab fugit itaque
-                            obcaecati enim quasi possimus officiis sint? Veniam hic amet
-                            error corrupti vero mollitia necessitatibus voluptass
-                            excepturi. Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Itaque earum quam, delectus eligendi dolores dolore
-                            atque pariatur commodi officia voluptas, quaerat accusamus
-                            accusantium debitis assumenda error! Culpa consectetur
-                            doloribus esse.
-                        </p>
-                        <a href="" class="btn btn-primary">Daha Fazla</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- card-12 -->
-            <div class="col-md-4 mb-4" id="card_body">
-                <div class="card blog-card">
-                    <img src="pictures/kart2.webp" alt="" class="card-img-top"/>
-                    <div class="card-body">
-                        <h5 class="card-title text-center h1 text-uppercase">
-                            başlık-12
-                        </h5>
-                        <p class="card-text line-clamp5">
-                            içerik-12 Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Officia dolore culpa alias minima nisi rem quae
                             necessitatibus, sapiente in ipsam magni ab fugit itaque
                             obcaecati enim quasi possimus officiis sint? Veniam hic amet
@@ -881,6 +803,6 @@
 ></script>
 
 <!-- External Js -->
-<script src="./public/js/index.js"></script>
+<script src="./js/index.js"></script>
 </body>
 </html>

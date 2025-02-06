@@ -76,7 +76,7 @@ p {
 }
 
 i {
-    font-size: 0.8rem;
+    font-size: 1rem;
     opacity: 0.9;
 }
 
@@ -101,6 +101,7 @@ img:hover {
 
 /* #### Line Clamp (Metin Kısaltma) #### */
 .line-clamp4,
+.line-clamp5,
 .line-clamp8,
 .line-clamp10,
 .line-clamp20 {
@@ -111,6 +112,10 @@ img:hover {
 
 .line-clamp4 {
     -webkit-line-clamp: 4;
+}
+
+.line-clamp5 {
+    -webkit-line-clamp: 5;
 }
 
 .line-clamp8 {

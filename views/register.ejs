@@ -5,7 +5,7 @@ EJS(Embedded JavaScript  bunu node.js kullandığımızda mongodb, api gibi veri
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>😂😂 Blog.ejs </title>
+    <title>😂😂 Register.ejs </title>
     <!-- for language  -->
     <meta charset="utf-8" />
 
@@ -47,49 +47,50 @@ EJS(Embedded JavaScript  bunu node.js kullandığımızda mongodb, api gibi veri
     <!-- <form id="blog-form"> -->
     <!-- CSRF (Cross-Site Request Forgery):  action,POST için eklendi -->
     <!-- blog için express router(yönlendirmesini yapacağım bunun için server.ts gelen verilerden kullanacağım) -->
+
     <form action="/register" method="POST" id="blog-form">
       <!-- Dikkat: Eğer bunu yazmazsanız hata alırsınız. CSRF (Cross-Site Request Forgery) -->
       <input type="hidden" name="_csrf" id="_csrf" value="<%= csrfToken %>" />
 
-      <!-- USERNAME -->
+      <!-- BLOG USERNAME-->
       <div class="form-group mb-3">
-        <span for="header">Header</span>
+        <span for="username">username</span>
         <!-- required kaldırdım -->
         <input
           type="text"
           id="username"
           name="username"
           class="form-control"
-          placeholder="username"
+          placeholder="username başlığı"
           autofocus
         />
       </div>
 
-      <!-- PASSWORD -->
+      <!-- BLOG PASSWORD -->
       <div class="form-group mb-3">
         <span for="content" class="form-label">Content</span>
         <!-- required kaldırdım -->
-        <input
-          type="text"
-          id="password"
-          name="password"
+        <textarea
           class="form-control"
-          placeholder="password"
-          autofocus
-        />
+          name="password"
+          id="password"
+          placeholder="password içeriği"
+          rows="5"
+        ></textarea>
       </div>
+      <small id="char-count" class="text-success">Kalan Harf Sayısı: 2000</small>
 
-      <!-- EMAIL -->
+
+      <!-- BLOG EMAIL-->
       <div class="form-group mb-3">
-        <span for="content" class="form-label">Content</span>
+        <span for="author">Author</span>
         <!-- required kaldırdım -->
         <input
           type="text"
           id="email"
           name="email"
           class="form-control"
-          placeholder="email"
-          autofocus
+          placeholder="blog yazarı"
         />
       </div>
 
@@ -102,7 +103,7 @@ EJS(Embedded JavaScript  bunu node.js kullandığımızda mongodb, api gibi veri
     </form>
 
     <hr />
-    <h2 class="text-primary">Blog</h2>
+    <h2 class="text-primary">Register</h2>
     <!-- table.table.table-hover.table-striped>thead>tr>(th{id})*5 -->
     <table id="blog-table" class="table table-hover table-striped">
       <!-- THEAD -->
@@ -144,6 +145,6 @@ EJS(Embedded JavaScript  bunu node.js kullandığımızda mongodb, api gibi veri
 
     <!-- external js -->
     <!-- NOT: `/public/js/styles.js` için  public dizininde olması gerekiyor -->
-    <script src="/js/blog.js"></script>
+    <script src="/js/register.js"></script>
   </body>
 </html>

@@ -24,9 +24,7 @@
 
 ## Script run (Typescript başlat)
 ```sh
-npm start
-VEYA~~~~
-npm run dev:parallel
+npm run dev:start
 ```
 ---
 

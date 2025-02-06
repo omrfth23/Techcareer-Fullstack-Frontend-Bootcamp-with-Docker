@@ -3,6 +3,5 @@
 {"level":"info","message":"Sunucu 1111 portunda çalışıyor http://localhost:1111"}
 {"level":"info","message":"Sunucu 1111 portunda çalışıyor http://localhost:1111"}
 {"level":"info","message":"Sunucu 1111 portunda çalışıyor http://localhost:1111"}
-{"level":"info","message":"Sunucu 1111 portunda çalışıyor http://localhost:1111"}
-{"level":"info","message":"Sunucu 1111 portunda çalışıyor http://localhost:1111"}
-{"level":"info","message":"Sunucu 1111 portunda çalışıyor http://localhost:1111"}
+{"level":"info","message":{"_csrf":"LSeZihWq-tdLhhVrrswCUq-QiMd4UkzuwKVo","author":"Author","content":"Content","header":"Header","tags":"tags"}}
+{"level":"info","message":"Dolu gövde alındı."}

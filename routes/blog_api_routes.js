@@ -5,6 +5,13 @@ Yazacağımız API ile MongoDB veritabanında blog projemiz için yazma, okuma, 
 Aşağıdaki kodta Exress.js yardımıyla Router  nesnesini farklı HTTP isteklerine cevap verebilecek API ile router yapılar oluşturulacaktır.
 */
 
+/*
+http://localhost:1111             => index.html
+http://localhost:1111/blog        => blog.html
+http://localhost:1111/blog/api    => blog verileri
+http://localhost:1111/blog/api:id => blog find
+ */
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Import Express (Express:  Node.js için esnek bir web uygulama çatısını inşa eder)
 // Bu modüllerle beraber HTTP istekleri(request) işleyecek ve istemciye(server) yanıt dönecektir.
@@ -34,19 +41,17 @@ const MongooseBlogModelApi = require("../models/mongoose_blog_models");
 // Örnek:get(find, list), post(create), put(Güncelleme), delete(Silme) yazmak zorundayız.
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 // DRY Principle (Don't Repeat Yourself)
 const handleError = (err, response, message) => {
     console.error(err);
     response.status(400).json({message});
 }; //end handleError
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // CREATE BLOG
 // POST isteği ile yeni bir blog datası oluşturuyoruz.
 // Gönderilen bu veriyi almak için request.body ile içeri aktarmış olacağız.
-// http://localhost:1111
+// http://localhost:1111/blog/api
 
 router.post("/", async (request, response) => {
     // Mongoose Blog Model Verileri Almak
@@ -76,7 +81,7 @@ router.post("/", async (request, response) => {
 /////////////////////////////////////////////////////////////////////////////////////////////
 // LIST BLOG
 // GET isteği ile mongodb üzerinden bütün verileri alacağız.
-// http://localhost:1111
+// http://localhost:1111/blog/api
 router.get("/", async (request, response) => {
     try {
         // MongoDB üzerinden get isteği attık
@@ -117,6 +122,7 @@ router.get("/", async (request, response) => {
 // UPDATE BLOG
 // PUT isteği ile mongodb üzerinden veri güncelleyeceğiz.
 // NOT: delete ve update işlemlerinde ID kullanılır.
+// http://localhost:1111/blog/api/:id
 router.put("/:id", async (request, response) => {
     try {
         // MongoDB üzerinden id ile istek attık
@@ -136,8 +142,7 @@ router.put("/:id", async (request, response) => {
 /////////////////////////////////////////////////////////////////////////////////////////////
 // DELETE BLOG
 // DELETE isteği ile mongodb üzerinden id ile sileceğiz.
-// http://localhost:1111/1
-
+// http://localhost:1111/blog/api/:id
 router.delete("/:id", async (request, response) => {
     try {
         // İlgili ID'i bul

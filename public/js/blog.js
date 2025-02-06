@@ -19,7 +19,7 @@ $(document).ready(function () {
     // Blog List
     function blogList() {
         $.ajax({
-            url: "/blog", method: "GET", success: function (data) {
+            url: "/blog/api", method: "GET", success: function (data) {
                 // blogList function içerik listesini temizlemek için kullandım.
                 $("#blog-table tbody").empty();
 
@@ -71,7 +71,7 @@ $(document).ready(function () {
 
         // Aldığım verileri kaydetmek (AJAX)
         $.ajax({
-            url: "/blog", method: "POST", data: blogDataCreate, success: function (data) {
+            url: "/blog/api", method: "POST", data: blogDataCreate, success: function (data) {
                 // Ekledikten sonraki işlem için listeyi tazele
                 blogList();
                 // Formu temizlemek için
@@ -120,7 +120,7 @@ $(document).ready(function () {
                     };
 
                     $.ajax({
-                        url: `/blog/${id}`, method: "PUT", data: blogData, success: function () {
+                        url: `/blog/api/${id}`, method: "PUT", data: blogData, success: function () {
                             blogList();
                             $("#blog-form")[0].reset();
                         }, error: function (xhr, status, error) {
@@ -149,7 +149,7 @@ $(document).ready(function () {
         if (confirmation) {
             // Silme (Ajax)
             $.ajax({
-                url: `/blog/${id}`, method: "DELETE", success: function () {
+                url: `/blog/api/${id}`, method: "DELETE", success: function () {
                     // Silme işleminden sonrası için listeyi tazele
                     blogList();
                 }, error: function (xhr, status, error) {

@@ -95,11 +95,8 @@ $(document).ready(function () {
         }
     });
 
-    // Formu sıfırlama fonksiyonu
-    const resetForm = () => {
-        $("#register-form")[0].reset();
-        clearErrors();
-    };
+    let isUpdating = false;
+    let updateId = null;
 
     // Kullanıcı listesini getir
     const fetchUserList = () => {
@@ -109,7 +106,6 @@ $(document).ready(function () {
             success: function (data) {
                 const $tbody = $("#user-table tbody").empty();
                 data.forEach(user => {
-                    // Tarihi formatla
                     const date = user.createdAt ? new Date(user.createdAt) : new Date();
                     const formattedDate = date.toLocaleString('tr-TR', {
                         year: 'numeric',
@@ -126,6 +122,9 @@ $(document).ready(function () {
                             <td>${user.email}</td>
                             <td>${formattedDate}</td>
                             <td>
+                                <button class="btn btn-primary edit-btn me-2">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
                                 <button class="btn btn-danger delete-btn">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
@@ -175,6 +174,36 @@ $(document).ready(function () {
         });
     };
 
+    // Düzenleme butonuna tıklandığında
+    $("#user-table tbody").on("click", ".edit-btn", function () {
+        const row = $(this).closest("tr");
+        const id = row.data("id");
+        updateId = id;
+        isUpdating = true;
+
+        // Form butonunu güncelle
+        $("#submit-btn").html('<i class="fas fa-save me-2"></i>Güncelle');
+        $("#submit-btn").removeClass("btn-register").addClass("btn-primary");
+
+        // Kullanıcı bilgilerini getir
+        $.ajax({
+            url: `/register/api/${id}`,
+            method: "GET",
+            success: function(user) {
+                $("#username").val(user.username);
+                $("#email").val(user.email);
+                // Şifre alanını boş bırak
+                $("#password").val('').prop('required', false);
+                
+                // Forma scroll
+                $('html, body').animate({
+                    scrollTop: $("#register-form").offset().top - 100
+                }, 500);
+            },
+            error: handleError
+        });
+    });
+
     // Form gönderme işlemini güncelle
     $("#register-form").on("submit", function (event) {
         event.preventDefault();
@@ -186,25 +215,31 @@ $(document).ready(function () {
         const userData = {
             username: $("#username").val().trim(),
             email: $("#email").val().trim(),
-            password: $("#password").val(),
             _csrf: $("input[name='_csrf']").val()
         };
 
+        // Eğer şifre girilmişse ekle
+        if ($("#password").val()) {
+            userData.password = $("#password").val();
+        }
+
+        const url = isUpdating ? `/register/api/${updateId}` : "/register/api";
+        const method = isUpdating ? "PUT" : "POST";
+
         $.ajax({
-            url: "/register/api",
-            method: "POST",
+            url: url,
+            method: method,
             data: userData,
             success: function (response) {
-                showSuccess('Kayıt başarıyla tamamlandı!');
-                $("#register-form")[0].reset();
-                clearErrors();
+                showSuccess(isUpdating ? 'Kullanıcı başarıyla güncellendi!' : 'Kayıt başarıyla tamamlandı!');
+                resetForm();
                 fetchUserList();
             },
             error: function (xhr, status, error) {
                 if (xhr.status === 409) {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Kayıt Başarısız!',
+                        title: 'İşlem Başarısız!',
                         text: 'Bu email adresi zaten kayıtlı!',
                         confirmButtonColor: '#e74a3b'
                     });
@@ -213,6 +248,24 @@ $(document).ready(function () {
                 }
             }
         });
+    });
+
+    // Formu sıfırlama fonksiyonunu güncelle
+    const resetForm = () => {
+        $("#register-form")[0].reset();
+        clearErrors();
+        isUpdating = false;
+        updateId = null;
+        $("#password").prop('required', true);
+        $("#submit-btn")
+            .html('<i class="fas fa-user-plus me-2"></i>Kayıt Ol')
+            .removeClass("btn-primary")
+            .addClass("btn-register");
+    };
+
+    // Reset butonuna tıklandığında
+    $(".btn-reset").click(function() {
+        resetForm();
     });
 
     // Kullanıcı silme işlemini güncelle

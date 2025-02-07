@@ -129,6 +129,56 @@ router.delete("/api/:id", async (request, response) => {
     }
 });
 
+// Tekil kullanıcı getirme
+router.get("/api/:id", async (request, response) => {
+    try {
+        const user = await RegisterModel.findById(request.params.id).select('-password');
+        if (!user) {
+            return response.status(404).json({ message: "Kullanıcı bulunamadı" });
+        }
+        response.status(200).json(user);
+    } catch (err) {
+        handleError(err, response, "Kullanıcı getirilirken bir hata oluştu");
+    }
+});
+
+// UPDATE - Kullanıcı güncelleme
+router.put("/api/:id", async (request, response) => {
+    try {
+        const { username, email, password } = request.body;
+        const updateData = { username, email };
+
+        // Şifre varsa güncelle
+        if (password) {
+            updateData.password = password;
+        }
+
+        // Email kontrolü (kendi emaili hariç)
+        const existingUser = await RegisterModel.findOne({ 
+            email, 
+            _id: { $ne: request.params.id } 
+        });
+        
+        if (existingUser) {
+            return response.status(409).json({ message: "Bu email adresi zaten kayıtlı!" });
+        }
+
+        const updatedUser = await RegisterModel.findByIdAndUpdate(
+            request.params.id,
+            updateData,
+            { new: true }
+        ).select('-password');
+
+        if (!updatedUser) {
+            return response.status(404).json({ message: "Kullanıcı bulunamadı" });
+        }
+
+        response.status(200).json(updatedUser);
+    } catch (err) {
+        handleError(err, response, "Kullanıcı güncellenirken bir hata oluştu");
+    }
+});
+
 /////////////////////////////////////////////////////////////
 // EXPORT
 module.exports = router;

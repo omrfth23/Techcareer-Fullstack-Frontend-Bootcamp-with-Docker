@@ -244,7 +244,8 @@ Kullanıcı browser üzerinden oturum açtığında ve kimlik doğrulama bilgile
 import path from "path";
 app.use(express.static(path.join(__dirname, "../public")));
 
-
+// Specifically for pictures
+app.use('/pictures', express.static(path.join(__dirname, '../public/pictures')));
 
 // 📌 Ana Sayfa (`index44.html`) Yönlendirmesi
 app.get("/", (req:any, res:any,) => {

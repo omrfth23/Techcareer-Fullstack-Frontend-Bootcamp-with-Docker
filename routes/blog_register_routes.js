@@ -34,7 +34,7 @@ app.use(morgan("combined")); //dev: uzun ve renkli loglar göster
 const router = express.Router();
 
 // Mongoose registerPostSchema Import
-const MongooseregisterModelApi = require("../models/mongoose_blog_register_models");
+const RegisterModel = require("../models/mongoose_blog_register_models");
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Dikkat: `router.` sonda yapılacak işlemlerde sadece ama sadece get,post,put,delete
@@ -55,69 +55,44 @@ const handleError = (err, response, message) => {
 // Gönderilen bu veriyi almak için request.body ile içeri aktarmış olacağız.
 // http://localhost:1111
 
-router.post("/", async (request, response) => {
-    // Mongoose register Model Verileri Almak
-    const create = new MongooseregisterModelApi({
-        username: request.body.header,
-        password: request.body.content,
-        email: request.body.author,
-    }); //end create
-
-    // Mongoose register Modelda Alınan Verileri Gönder
+router.post("/api", async (request, response) => {
     try {
-        // MongoDB'ye kaydet
-        await create.save();
+        const { username, email, password } = request.body;
+        
+        // Email kontrolü
+        const existingUser = await RegisterModel.findOne({ email });
+        if (existingUser) {
+            return response.status(409).json({ message: "Bu email adresi zaten kayıtlı!" });
+        }
 
-        // Başarılı durumda status(200) döndüğünde
-        response.status(200).json(create);
+        // Yeni kullanıcı oluştur
+        const newUser = new RegisterModel({
+            username,
+            email,
+            password // Gerçek uygulamada şifre hash'lenmelidir
+        });
 
-        // Ekleme başarılı
-        console.warn("Ekleme Başarılı");
-        console.warn(create);
+        await newUser.save();
+        response.status(201).json({ message: "Kullanıcı başarıyla kaydedildi" });
     } catch (err) {
-        handleError(err, response, "MongoDB'de Ekleme Sırasında Hata Meydana geldi");
-    } //end catch
-}); //end create => post
+        handleError(err, response, "Kullanıcı kaydı sırasında bir hata oluştu");
+    }
+});
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // LIST register
 // GET isteği ile mongodb üzerinden bütün verileri alacağız.
 // http://localhost:1111
-router.get("/", async (request, response) => {
+router.get("/api", async (request, response) => {
     try {
-        // MongoDB üzerinden get isteği attık
-        const find = await MongooseregisterModelApi.find();
-
-        // Tarihi Bizim istediğimiz şekilde yazalım.
-        const formattedDateTurkish = await Promise.all(find.map(async (temp) => {
-            // Görüntüleme sayısını artırma
-            await temp.incrementViews();
-
-            return {
-                ...temp._doc, // Tüm register verilerini kopyala
-                dateInformation: new Date(temp.createdAt).toLocaleString("tr-TR", {
-                    year: "numeric", month: "long", day: "numeric", year: "numeric", hour: "2-digit", second: "2-digit",
-                }), //end createdAt
-            }; //end return
-        })); //end formattedDateTurkish
-
-        // Her register sayfasına bakıldıkça sayacçı 1 artır
-        // const viewCounter = await Promise.all(
-        //   find.map(async (register) => {
-        //     await register.incrementViews(); // Görüntüleme sayısını artır
-        //     return register;
-        //   }) // end map
-        // ); //end viewCounter
-        // Dönüş değeri
-
-        response.status(200).json(formattedDateTurkish);
-
-        // Listeleme başarılı
-        console.log("Listeleme Başarılı");
+        const users = await RegisterModel.find()
+            .select('-password') // Şifreyi hariç tut
+            .sort({ createdAt: -1 }); // En son kayıt olanlar üstte
+        response.status(200).json(users);
     } catch (err) {
-        handleError(err, response, "MongoDB'de Listeleme Sırasında Hata Meydana geldi");
-    } //end catch
-}); //end list => get
+        handleError(err, response, "Kullanıcılar listelenirken bir hata oluştu");
+    }
+});
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // UPDATE register
@@ -126,7 +101,7 @@ router.get("/", async (request, response) => {
 router.put("/:id", async (request, response) => {
     try {
         // MongoDB üzerinden id ile istek attık
-        const update = await MongooseregisterModelApi.findByIdAndUpdate(// ID almak
+        const update = await RegisterModel.findByIdAndUpdate(// ID almak
             request.params.id, request.body, {new: true}); //end update
 
         // Dönüş değeri
@@ -144,24 +119,15 @@ router.put("/:id", async (request, response) => {
 // DELETE isteği ile mongodb üzerinden id ile sileceğiz.
 // http://localhost:1111/1
 
-router.delete("/:id", async (request, response) => {
+router.delete("/api/:id", async (request, response) => {
     try {
-        // İlgili ID'i bul
         const id = request.params.id;
-        console.log(id);
-
-        const deleteFindId = await MongooseregisterModelApi.findByIdAndDelete(id);
-        console.log(deleteFindId);
-
-        // Dönüş değeri
-        response.status(200).json({message: `${id} nolu id silindi`});
-
-        // Listeleme başarılı
-        console.log("Listeleme Başarılı");
+        await RegisterModel.findByIdAndDelete(id);
+        response.status(200).json({ message: `${id} ID'li kullanıcı silindi` });
     } catch (err) {
-        handleError(err, response, "MongoDB'de Silme Sırasında Hata Meydana geldi");
-    } //end catch
-}); //end list => get
+        handleError(err, response, "Kullanıcı silinirken bir hata oluştu");
+    }
+});
 
 /////////////////////////////////////////////////////////////
 // EXPORT

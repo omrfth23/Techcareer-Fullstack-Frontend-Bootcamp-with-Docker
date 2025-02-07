@@ -129,7 +129,7 @@ const dataUrl = [
 
 mongoose
   // .connect(`${databaseDockerUrl}`)
-  .connect(`${databaseLocalUrl}`)
+  .connect(`${databaseDockerUrl}`)
   .then(() => {
     console.log("Mongo DB Başarıyla Yüklendi");
   })
@@ -320,7 +320,7 @@ app.post("/blog/api", csrfProtection, (request:any, response:any) => {
         logger.info("Dolu gövde alındı."); //logger: Winston
     }
 
-    const BlogModel = require("./models/mongoose_blog_models"); // Modeli ekleyin
+    const BlogModel = require("../models/mongoose_blog_models"); // Modeli ekleyin
 
     const newBlog = new BlogModel(blogData);
     newBlog
@@ -337,14 +337,22 @@ app.post("/blog/api", csrfProtection, (request:any, response:any) => {
         });
 });
 
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // EJS(Embedded JavaScript) Görüntüleme motorunu aktifleştirdim
 // views/blog.ejs aktifleştirmek
 app.set("view engine", "ejs");
+
+
+// 📌 Register sayfası için rota
+app.get("/register", csrfProtection, (request:any, response:any) => {
+    response.render("register", { 
+        csrfToken: request.csrfToken()
+    });
+});
+
+// Register API rotası için router'ı ekle
+const registerRoutes = require("../routes/blog_register_routes");
+app.use("/register", registerRoutes);  // "/register/" yerine "/register" kullanıyoruz
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -353,7 +361,7 @@ const blogRoutes = require("../routes/blog_api_routes");
 const { request } = require("http");
 
 // http://localhost:1111/blog
-app.use("/blog/", blogRoutes);
+app.use("/blog", blogRoutes);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

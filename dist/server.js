@@ -109,7 +109,7 @@ const dataUrl = [
 //mongoose.connect(`${databaseCloudUrl}`, {useNewUrlParser:true, useUnifiedTopology:true}) // Eski MongoDB sürümleride
 mongoose
     // .connect(`${databaseDockerUrl}`)
-    .connect(`${databaseLocalUrl}`)
+    .connect(`${databaseDockerUrl}`)
     .then(() => {
     console.log("Mongo DB Başarıyla Yüklendi");
 })
@@ -213,7 +213,7 @@ app.get("/", (req, res) => {
 });
 // Formu render eden rota ("/")
 // Anasayfaya yönlendir.
-app.get("/blog", csrfProtection, (request, response) => {
+app.get("/blog/api", csrfProtection, (request, response) => {
     // İstek gövdesinde JSON(Javascript Object Notation) formatında veri göndereceğini belirtir.
     //response.setHeader("Content-Type", "application/json");
     //response.setHeader("Content-Type", "text/plain"); // name Hamit surnameMızrak
@@ -243,7 +243,7 @@ app.get("/blog", csrfProtection, (request, response) => {
 // DİKKATT: Eğer  blog_api_routes.js post kısmında event.preventDefault(); kapatırsam buraki kodlar çalışır.
 // blog için CSRF koruması eklenmiş POST işlemi
 // app.post("/blog", csrfProtection, (request, response) => {
-app.post("/", csrfProtection, (request, response) => {
+app.post("/blog/api", csrfProtection, (request, response) => {
     const blogData = {
         header: request.body.header,
         content: request.body.content,
@@ -263,7 +263,7 @@ app.post("/", csrfProtection, (request, response) => {
         logger.info(request.body); //logger: Winston
         logger.info("Dolu gövde alındı."); //logger: Winston
     }
-    const BlogModel = require("./models/mongoose_blog_models"); // Modeli ekleyin
+    const BlogModel = require("../models/mongoose_blog_models"); // Modeli ekleyin
     const newBlog = new BlogModel(blogData);
     newBlog
         .save()
@@ -278,18 +278,25 @@ app.post("/", csrfProtection, (request, response) => {
         response.status(500).send("Veritabanı hatası oluştu.");
     });
 });
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // EJS(Embedded JavaScript) Görüntüleme motorunu aktifleştirdim
 // views/blog.ejs aktifleştirmek
 app.set("view engine", "ejs");
+// 📌 Register sayfası için rota
+app.get("/register", csrfProtection, (request, response) => {
+    response.render("register", { 
+        csrfToken: request.csrfToken()
+    });
+});
+// Register API rotası için router'ı ekle
+const registerRoutes = require("../routes/blog_register_routes");
+app.use("/register", registerRoutes); // "/register/" yerine "/register" kullanıyoruz
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Router (Rotalar)
 const blogRoutes = require("../routes/blog_api_routes");
 const { request } = require("http");
 // http://localhost:1111/blog
-app.use("/blog/api", blogRoutes);
+app.use("/blog", blogRoutes);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 404 Hata sayfası

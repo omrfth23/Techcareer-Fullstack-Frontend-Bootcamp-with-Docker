@@ -1,0 +1,151 @@
+/* Ana stil tanımlamaları */
+:root {
+    --primary-color: #4e73df;
+    --secondary-color: #858796;
+    --success-color: #1cc88a;
+    --danger-color: #e74a3b;
+    --background-color: #f8f9fc;
+    --card-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+body {
+    background: var(--background-color);
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Register card tasarımı */
+.register-container {
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.register-card {
+    background: white;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+.register-card .card-header {
+    background: linear-gradient(to right, var(--primary-color), #224abe);
+    border: none;
+    padding: 2rem 1.5rem;
+}
+
+.register-card .card-header h1 {
+    color: white;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.register-card .card-body {
+    padding: 2rem;
+}
+
+/* Form elemanları */
+.form-floating {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-floating input {
+    height: 3.5rem;
+    padding: 1rem 0.75rem;
+}
+
+.form-floating label {
+    padding: 1rem 0.75rem;
+}
+
+.form-floating .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(78, 115, 223, 0.25);
+}
+
+/* Butonlar */
+.btn-register {
+    background: var(--primary-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-register:hover {
+    background: #224abe;
+    transform: translateY(-1px);
+}
+
+.btn-reset {
+    background: var(--danger-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-reset:hover {
+    background: #be2617;
+    transform: translateY(-1px);
+}
+
+/* Tablo tasarımı */
+.users-table {
+    margin-top: 3rem;
+}
+
+.users-table .card {
+    border: none;
+    box-shadow: var(--card-shadow);
+}
+
+.users-table .card-header {
+    background: white;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background: #f8f9fc;
+    border-bottom: 2px solid #e3e6f0;
+    color: #4e73df;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.table tbody td {
+    vertical-align: middle;
+    color: #858796;
+}
+
+/* Validation mesajları */
+.error-message {
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+.valid-message {
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+    .register-card .card-header {
+        padding: 1.5rem 1rem;
+    }
+
+    .register-card .card-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .register-card .card-body {
+        padding: 1.5rem 1rem;
+    }
+}

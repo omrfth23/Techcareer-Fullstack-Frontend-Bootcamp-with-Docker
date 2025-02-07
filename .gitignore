@@ -1,5 +1,28 @@
-# Special My Git untrackted
+# Dependencies
 /node_modules
+package-lock.json
 
-# Mongo DB
+# Environment variables
 .env
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

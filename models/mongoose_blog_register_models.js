@@ -1,4 +1,4 @@
-// MongoDB için veritabanı işlemlerinde kullanmak üzere `MongoBlogModel` adında model oluşturalım.
+// MongoDB için veritabanı işlemlerinde kullanmak üzere `MongoRegisterModel` adında model oluşturalım.
 // Mongoose adında ki kütüphaneyi ekle ve bu kütüphaneye erişmek için `mongoose` adını kullan.
 // mongoose paketini sisteme dahil ediyoruz.
 // Mongoose MongoDB ile bağlantı kurarken sağlıklı ve hızlı bağlantısı için  bir ODM(Object Data Modeling)
@@ -8,53 +8,38 @@ const mongoose = require("mongoose");
 
 // Schema adından (BlogPostSchema)
 const BlogRegisterSchema = new mongoose.Schema({
-        // 1.YOL (HEADER)
-        //header: String,
-
-        // 2.YOL (USERNAME)
+        // 1.YOL (USERNAME)
         username: {
             type: String,
-            required: [true, " Username Başlığı için gereklidir"],
+            required: [true, "Username alanı gereklidir"],
             trim: true,
-            minleght: [5, "Username başlığı için minumum 5 karakter olmalıdır."],
-            maxleght: [100, "Username başlığı için maksimum 100 karakter olmalıdır."],
+            minlength: [3, "Username en az 3 karakter olmalıdır."],
+            maxlength: [50, "Username en fazla 50 karakter olmalıdır."],
         },
 
         // PASSWORD
-        // content: String,
         password: {
             type: String,
-            required: [true, " Password içeriği için gereklidir"],
+            required: [true, "Şifre alanı gereklidir"],
             trim: true,
-            minleght: [5, "Password için minumum 5 karakter olmalıdır."],
+            minlength: [6, "Şifre en az 6 karakter olmalıdır."],
         },
 
         // EMAIL
-        email: String,
-
-        // DATE
-        dateInformation: {
-            type: String, default: Date.now(),
-        },
-
-        // VIEWS
-        // Blog Görüntüleme (Default: 0)
-        views: {
-            type: Number, default: 0, min: [0, "Blog gösterimi için Negatif değer verilmez"],
-        },
-
-        // STATUS
-        // Durum (Proje için bu bir taslak mı yoksa canlı ortam için mi ?)
-        // Enum Durum Alanı: status: Blog gönderisinin durumu "draft" veya "published" olarak belirlenir. Bu, bir gönderinin taslak mı yoksa yayınlanmış mı olduğunu gösterir.
-        status: {
-            type: String, enum: ["draft", "published"], default: "draft",
-        },
-    }, //end BlogRegisterSchema {}
+        email: {
+            type: String,
+            required: [true, "Email alanı gereklidir"],
+            unique: true,
+            trim: true,
+            lowercase: true,
+            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Geçerli bir email adresi giriniz'],
+        }
+    }, 
     {
-        // Oluşturma ve güncellemem zamanları sisteme eklemek
-        // Zaman Bilgileri: timestamps: createdAt ve updatedAt alanları otomatik olarak eklenir ve her işlemde güncellenir.
-        timestamps: true,
-    }); //end PostSchema
+        // Bu seçenek otomatik olarak createdAt ve updatedAt alanlarını ekler
+        timestamps: true
+    }
+);
 
 ////////////////////////////////////////////////////////////////////
 // Sanal alan (Virtuals) - İçerik özetini döndürme
@@ -64,11 +49,12 @@ BlogRegisterSchema.virtual("summary").get(function () {
     return this.content.substring(0, 100) + "..."; // İlk 100 karakter ve ardından ...
 });
 
-// Şema için ön middleware - Her kaydetmeden önce başlık ve içeriği büyük harflerle güncelleme
-// Şema Middleware (Pre-save Hook): pre("save"): Kaydedilmeden önce başlık ve içeriğin ilk harflerini büyük yapmak için bir ön middleware ekledik.
+// Şema için ön middleware - Kullanıcı adını düzenleme
 BlogRegisterSchema.pre("save", function (next) {
-    this.header = this.header.charAt(0).toUpperCase() + this.header.slice(1);
-    this.content = this.content.charAt(0).toUpperCase() + this.content.slice(1);
+    // Username'in ilk harfini büyük yap
+    if (this.username) {
+        this.username = this.username.charAt(0).toUpperCase() + this.username.slice(1).toLowerCase();
+    }
     next();
 });
 
@@ -85,6 +71,13 @@ BlogRegisterSchema.methods.incrementViews = function () {
     return this.save();
 };
 
+// Instance metodu - Kullanıcı bilgilerini güvenli şekilde döndürme
+BlogRegisterSchema.methods.toJSON = function() {
+    const user = this.toObject();
+    delete user.password; // Şifreyi JSON çıktısından kaldır
+    return user;
+};
+
 // Sanal alanların JSON'a dahil edilmesi
 BlogRegisterSchema.set("toJSON", {virtuals: true});
 
@@ -98,5 +91,5 @@ BlogRegisterSchema.set("toJSON", {virtuals: true});
 // module.exports = mongoose.model("MongoBlogModel", BlogRegisterSchema);
 
 // 2.YOL
-const Blog = mongoose.model("MongoBlogRegisterModel", BlogRegisterSchema);
-module.exports = Blog;
+const RegisterModel = mongoose.model("Register", BlogRegisterSchema);
+module.exports = RegisterModel;

@@ -106,7 +106,7 @@ $(document).ready(function () {
     // Blog listesini getir
     const fetchBlogList = () => {
         $.ajax({
-            url: "/blog/api",
+            url: "/blog",
             method: "GET",
             success: function (data) {
                 const $tbody = $("#blog-table tbody").empty();
@@ -158,7 +158,7 @@ $(document).ready(function () {
 
         if (isUpdating && updateId) {
             $.ajax({
-                url: `/blog/api/${updateId}`,
+                url: `/blog${updateId}`,
                 method: "PUT",
                 data: blogData,
                 success: function () {
@@ -169,7 +169,7 @@ $(document).ready(function () {
             });
         } else {
             $.ajax({
-                url: "/blog/api",
+                url: "/blog",
                 method: "POST",
                 data: blogData,
                 success: function () {

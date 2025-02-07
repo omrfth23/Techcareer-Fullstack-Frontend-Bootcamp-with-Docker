@@ -304,10 +304,10 @@ header {
 }
 
 #newspaper_p:hover {
-    opacity: 0.8;
-    transition: 4s all;
-    background-color: var(--blue)!important;
-    color: var(--white)!important;
+    opacity: 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #f0f8ff !important; /* Light blue background */
+    color: #333 !important; /* Darker text color for better readability */
 }
 
 /* blog */
